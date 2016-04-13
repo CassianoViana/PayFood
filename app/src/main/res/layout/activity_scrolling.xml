@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context="com.payfood.payfood.procurandoLanche.ScrollingActivity">
+
+
+    <android.support.design.widget.CollapsingToolbarLayout
+        android:id="@+id/toolbar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        app:contentScrim="?attr/colorPrimary"
+        app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+        <RelativeLayout
+            android:id="@+id/lanchonete_foto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimaryDark">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/imagem_da_lanchonete"
+                android:scaleType="centerCrop"
+                android:src="@drawable/lanchonete" />
+
+            <Button
+                android:id="@+id/btn_local_estabelecimento"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:text="Local" />
+        </RelativeLayout>
+
+    </android.support.design.widget.CollapsingToolbarLayout>
+
+    <ListView
+        android:id="@+id/lista_lanches"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/lanchonete_foto"/>
+
+</android.support.design.widget.CoordinatorLayout>

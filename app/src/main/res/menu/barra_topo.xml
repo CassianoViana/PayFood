@@ -2,7 +2,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".MainActivity">
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/estabelecimentos"
         android:icon="@android:drawable/ic_menu_sort_by_size"
-        android:title="@string/abrindo_navegador" />
+        android:title="@string/tituloEstabelecimentos" />
+    <item
+        android:id="@+id/perfil"
+        android:icon="@android:drawable/ic_menu_sort_by_size"
+        android:title="@string/tituloPerfil" />
 </menu>

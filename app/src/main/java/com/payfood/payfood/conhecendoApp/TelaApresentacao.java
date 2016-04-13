@@ -5,7 +5,7 @@ import android.support.v4.view.ViewPager;
 import android.view.View;
 
 import com.payfood.payfood.R;
-import com.payfood.payfood.procurandoLanche.TelaPrincipal;
+import com.payfood.payfood.telaPrincipal.TelaPrincipal;
 
 import framework.Tela;
 

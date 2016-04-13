@@ -6,6 +6,6 @@
     android:layout_height="match_parent"
     android:layout_gravity="start"
     app:headerLayout="@layout/navegador_cabecalho"
-    app:menu="@menu/navegador">
+    app:menu="@menu/navegador" >
 </android.support.design.widget.NavigationView>
 

@@ -1,8 +1,6 @@
 package com.payfood.payfood.conhecendoApp;
 
 import android.graphics.Color;
-import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,9 +12,8 @@ import framework.Painel;
 
 public class PainelImagem extends Painel {
 
-    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    protected View aoCriar(LayoutInflater inflater, ViewGroup container) {
         View view = new LinearLayout(this.getActivity());
         Random rnd = new Random();
         view.setBackgroundColor(Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256)));

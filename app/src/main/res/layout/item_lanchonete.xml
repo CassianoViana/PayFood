@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:padding="@dimen/padding_listas">
+
+    <TextView
+        android:id="@+id/nome_estabelecimento"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Large Text"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/endereco_estabelecimento"
+        android:layout_alignStart="@+id/endereco_estabelecimento" />
+
+    <TextView
+        android:id="@+id/endereco_estabelecimento"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:layout_below="@+id/nome_estabelecimento"
+        android:layout_toRightOf="@+id/imageView2"
+        android:layout_toEndOf="@+id/imageView2"
+        android:layout_marginLeft="14dp"
+        android:layout_marginStart="14dp" />
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/imageView2"
+        android:adjustViewBounds="true"
+        android:scaleType="centerInside"
+        android:src="@drawable/logo_lanchonete"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+
+</RelativeLayout>
