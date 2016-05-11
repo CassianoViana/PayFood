@@ -4,6 +4,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.PagerAdapter;
 
+import com.payfood.payfood.R;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,9 +19,9 @@ public class AdapterPagerTelaApresentacaoApp {
     public AdapterPagerTelaApresentacaoApp(Tela tela) {
         super();
         paineis = new ArrayList<>();
-        paineis.add(new PainelImagem());
-        paineis.add(new PainelImagem());
-        paineis.add(new PainelImagem());
+        paineis.add(PainelImagem.criar(R.drawable.coxinha));
+        paineis.add(PainelImagem.criar(R.drawable.painel1));
+        paineis.add(PainelImagem.criar(R.drawable.coxinha));
         criarAdapter(tela);
     }
 

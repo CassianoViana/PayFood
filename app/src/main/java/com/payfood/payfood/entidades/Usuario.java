@@ -9,4 +9,6 @@ public class Usuario {
     private Data dataRegistro;
     private DadosBancarios dadosBancarios;
     private Inscricao inscricao;
+
+
 }

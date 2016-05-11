@@ -27,14 +27,14 @@ public class GerenciadorFragments implements ListenerSolicitacaoAbrirOutraTela {
         painel.addListenerSolicitacaoAbrirOutraTela(this);
         FragmentTransaction ft = fragmentManager.beginTransaction();
         String key = painel.getClass().getName();
-        boolean mapaExiste = mapa.containsKey(key);
-        if (!mapaExiste) {
+        boolean chaveExiste = mapa.containsKey(key);
+        if (!chaveExiste) {
             mapa.put(key, painel);
         } else {
             painel = mapa.get(key);
         }
         ft.replace(R.id.conteudo, painel);
-        if(!mapaExiste) {
+        if(!chaveExiste) {
             ft.addToBackStack(key);
         }
         ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);

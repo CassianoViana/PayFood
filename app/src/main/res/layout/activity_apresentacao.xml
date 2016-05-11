@@ -30,7 +30,8 @@
         <Button
             android:text="@string/ja_tenho_uma_conta"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:onClick="entrar"/>
     </LinearLayout>
 
 </RelativeLayout>

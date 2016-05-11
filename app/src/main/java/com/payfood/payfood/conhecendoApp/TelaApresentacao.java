@@ -5,6 +5,7 @@ import android.support.v4.view.ViewPager;
 import android.view.View;
 
 import com.payfood.payfood.R;
+import com.payfood.payfood.entrandoComoUsuario.TelaValidacao;
 import com.payfood.payfood.telaPrincipal.TelaPrincipal;
 
 import framework.Tela;
@@ -25,8 +26,14 @@ public class TelaApresentacao extends Tela {
     }
 
     public void conhecer(View view) {
-        Intent intent = new Intent(this, TelaPrincipal.class);
-        startActivity(intent);
+        Intent telaPrincipal = new Intent(this, TelaPrincipal.class);
+        startActivity(telaPrincipal);
+        finish();
+    }
+
+    public void entrar(View view){
+        Intent telaValidacao = new Intent(this, TelaValidacao.class);
+        startActivity(telaValidacao);
         finish();
     }
 }
