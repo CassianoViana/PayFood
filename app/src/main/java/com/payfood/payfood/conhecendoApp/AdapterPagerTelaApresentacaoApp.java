@@ -9,6 +9,7 @@ import com.payfood.payfood.R;
 import java.util.ArrayList;
 import java.util.List;
 
+import framework.Painel;
 import framework.Tela;
 
 public class AdapterPagerTelaApresentacaoApp {
@@ -16,7 +17,7 @@ public class AdapterPagerTelaApresentacaoApp {
     private PagerAdapter adapter;
     List<PainelImagem> paineis;
 
-    public AdapterPagerTelaApresentacaoApp(Tela tela) {
+    public AdapterPagerTelaApresentacaoApp(Painel tela) {
         super();
         paineis = new ArrayList<>();
         paineis.add(PainelImagem.criar(R.drawable.coxinha));
@@ -25,8 +26,8 @@ public class AdapterPagerTelaApresentacaoApp {
         criarAdapter(tela);
     }
 
-    private void criarAdapter(final Tela tela) {
-        adapter = new FragmentPagerAdapter(tela.getSupportFragmentManager()) {
+    private void criarAdapter(final Painel tela) {
+        adapter = new FragmentPagerAdapter(tela.getActivity().getSupportFragmentManager()) {
 
             @Override
             public Fragment getItem(int position) {

@@ -15,20 +15,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".conhecendoApp.TelaApresentacao"
+            android:name=".telaPrincipal.TelaPrincipal"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".telaPrincipal.TelaPrincipal"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".entrandoComoUsuario.TelaValidacao"
-            android:label="@string/title_activity_tela_validacao"
-            android:theme="@style/AppTheme"/>
     </application>
 
 </manifest>

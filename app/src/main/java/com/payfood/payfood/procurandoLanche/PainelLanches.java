@@ -14,8 +14,6 @@ import framework.Painel;
 import minhaLang.CarregadorDados;
 
 public class PainelLanches extends Painel {
-    private ListView listaLanches;
-    private ArrayAdapter adapterEstabelecimentos;
     private CarregadorDados<Produto> carregadorDados;
 
     public PainelLanches() {
@@ -30,8 +28,8 @@ public class PainelLanches extends Painel {
     }
 
     private void configurarListaLanches(View view) {
-        listaLanches = (ListView) view.findViewById(R.id.lista_lanches);
-        adapterEstabelecimentos = new AdapterLanches(carregadorDados);
+        ListView listaLanches = (ListView) view.findViewById(R.id.lista_lanches);
+        ArrayAdapter adapterEstabelecimentos = new AdapterLanches(carregadorDados);
         listaLanches.setAdapter(adapterEstabelecimentos);
     }
 
@@ -60,8 +58,7 @@ public class PainelLanches extends Painel {
             convertView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    PainelPedirLanche painelLanche = new PainelPedirLanche();
-                    getGerenciadorTelas().mostrar(painelLanche);
+                    chamar(PainelPedirLanche.class);
                 }
             });
         }

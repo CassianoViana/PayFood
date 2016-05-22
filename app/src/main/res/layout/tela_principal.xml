@@ -3,21 +3,13 @@
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
-        <include
-            android:id="@+id/include"
-            layout="@layout/toolbar" />
-
         <FrameLayout
             android:id="@+id/conteudo"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@+id/include">
-
+            android:layout_height="match_parent">
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"

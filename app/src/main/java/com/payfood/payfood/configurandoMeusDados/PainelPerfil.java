@@ -29,7 +29,7 @@ public class PainelPerfil extends Painel {
         btnEditarDadosUsuario.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getGerenciadorTelas().mostrar(new PainelEdicaoPerfil());
+                chamar(PainelEdicaoPerfil.class);
             }
         });
     }

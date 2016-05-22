@@ -40,6 +40,6 @@ public class TelaComToolbar extends Tela {
     }
 
     protected View getConteudo() {
-        return new Componente(this);
+        return new View(this);
     }
 }

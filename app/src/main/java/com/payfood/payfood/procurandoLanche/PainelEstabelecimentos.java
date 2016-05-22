@@ -61,8 +61,7 @@ public class PainelEstabelecimentos extends Painel {
             viewEstabelecimento.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    PainelLanches painelLanches = new PainelLanches();
-                    getGerenciadorTelas().mostrar(painelLanches);
+                    chamar(PainelLanches.class);
                 }
             });
         }

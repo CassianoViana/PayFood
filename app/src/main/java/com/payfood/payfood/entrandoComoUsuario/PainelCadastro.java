@@ -9,17 +9,17 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.loopj.android.http.JsonHttpResponseHandler;
-import com.loopj.android.http.RequestParams;
 import com.payfood.payfood.R;
 import com.payfood.payfood.comunicacaoExterna.PayFoodRestClient;
 import com.payfood.payfood.procurandoLanche.PainelLanches;
 
-import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.net.URI;
+import java.io.UnsupportedEncodingException;
 
 import cz.msebera.android.httpclient.Header;
+import cz.msebera.android.httpclient.entity.StringEntity;
 import framework.Painel;
 
 public class PainelCadastro extends Painel {
@@ -46,9 +46,9 @@ public class PainelCadastro extends Painel {
         btnEconomizar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //if (validarFormulario()) {
+                if (validarFormulario()) {
                     cadastrar();
-                //}
+                }
             }
         });
     }
@@ -64,20 +64,35 @@ public class PainelCadastro extends Painel {
     }
 
     private void cadastrar() {
-        RequestParams params = new RequestParams();
-        params.put("email", txtEmail.getText().toString());
-        params.put("usuario", txtUsuario.getText().toString());
-        params.put("senha", txtSenha.getText().toString());
-        PayFoodRestClient.post("usr", params, new JsonHttpResponseHandler() {
-            @Override
-            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                mostrarMensagemSucessoCadastro();
-            }
-            @Override
-            public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
-                mostrarMensagemFalhaCadastro();
-            }
-        });
+        try {
+            JSONObject jsonParams = new JSONObject();
+            jsonParams.put("name", txtUsuario.getText().toString());
+            jsonParams.put("email", txtEmail.getText().toString());
+            jsonParams.put("password", txtSenha.getText().toString());
+            StringEntity entity = new StringEntity(jsonParams.toString());
+            PayFoodRestClient.postJson(getActivity(), "usr", entity, new JsonHttpResponseHandler() {
+                @Override
+                public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                    mostrarMensagemSucessoCadastro();
+                }
+
+                @Override
+                public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
+                    mostrarMensagemFalhaCadastro();
+                }
+
+                @Override
+                public void onRetry(int retryNo) {
+                    if (retryNo == 2) {
+                        mostrarMensagemFalhaCadastro();
+                        super.sendCancelMessage();
+                    }
+
+                }
+            });
+        } catch (JSONException | UnsupportedEncodingException e) {
+            mostrarMensagemFalhaCadastro();
+        }
     }
 
     private boolean formularioValido() {
@@ -94,7 +109,7 @@ public class PainelCadastro extends Painel {
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        getGerenciadorTelas().mostrar(new PainelLanches());
+                        chamar(PainelLanches.class);
                     }
                 })
                 .create().show();
@@ -108,7 +123,6 @@ public class PainelCadastro extends Painel {
                 .setPositiveButton("OK", null)
                 .create().show();
     }
-
 
 
 }

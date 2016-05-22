@@ -13,11 +13,6 @@ public abstract class Tela extends AppCompatActivity {
         aoCriar(savedInstanceState);
     }
 
-    @Override
-    public void onPostCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
-        super.onPostCreate(savedInstanceState, persistentState);
-    }
-
     protected void aoCriar(){}
 
     protected void aoCriar(Bundle estado){}

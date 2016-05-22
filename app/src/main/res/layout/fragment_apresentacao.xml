@@ -23,15 +23,17 @@
         android:layout_alignParentStart="true"
         android:id="@+id/linearLayout">
         <Button
+            android:id="@+id/btn_conhecer"
             android:text="@string/conhecer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="conhecer"/>
+            />
         <Button
+            android:id="@+id/btn_ja_tenho_conta"
             android:text="@string/ja_tenho_uma_conta"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="entrar"/>
+            />
     </LinearLayout>
 
 </RelativeLayout>
