@@ -29,7 +29,8 @@ public class PainelApresentacao extends Painel {
         btnConhecer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                sairDaPilha().chamar(DashBoard.class);
+                sairDaPilha();
+                chamar(DashBoard.class);
             }
         });
         btnJaTenhoConta.setOnClickListener(new View.OnClickListener() {

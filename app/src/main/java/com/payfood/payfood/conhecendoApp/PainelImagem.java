@@ -12,7 +12,7 @@ public class PainelImagem extends Painel {
     @Override
     protected View aoCriar(LayoutInflater inflater, ViewGroup container) {
         View view = new LinearLayout(this.getActivity());
-        view.setBackground(getResources().getDrawable(imagemId, null));
+        //view.setBackground(getResources().getDrawable(imagemId, null));
         return view;
     }
 

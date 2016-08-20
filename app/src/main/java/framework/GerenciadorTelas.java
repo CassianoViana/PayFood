@@ -20,7 +20,7 @@ public class GerenciadorTelas {
 
     public void chamar(Class nomeClassePainel) {
         String nome = nomeClassePainel.getName();
-        Painel painel = getPainelPor(nome);
+        Painel painel = getPainel(nome);
         abrirPainel(nome, painel);
     }
 
@@ -32,7 +32,7 @@ public class GerenciadorTelas {
         fragmentTransaction.commitAllowingStateLoss();
     }
 
-    private Painel getPainelPor(String nome) {
+    private Painel getPainel(String nome) {
         boolean jaAdicionado = mapa.containsKey(nome);
         Painel painel;
         if (jaAdicionado) {

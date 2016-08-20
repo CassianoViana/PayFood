@@ -12,14 +12,10 @@ public abstract class Painel extends Fragment {
 
     private GerenciadorTelas gerenciadorTelas;
 
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return aoCriar(inflater, container);
-    }
-
     protected abstract View aoCriar(LayoutInflater inflater, ViewGroup container);
 
-    public void setGerenciadorTelas(GerenciadorTelas gerenciadorTelas) {
-        this.gerenciadorTelas = gerenciadorTelas;
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        return aoCriar(inflater, container);
     }
 
     public void chamar(Class painel) {
@@ -34,5 +30,9 @@ public abstract class Painel extends Fragment {
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    public void setGerenciadorTelas(GerenciadorTelas gerenciadorTelas) {
+        this.gerenciadorTelas = gerenciadorTelas;
     }
 }

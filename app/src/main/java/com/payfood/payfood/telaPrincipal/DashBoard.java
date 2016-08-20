@@ -1,9 +1,6 @@
 package com.payfood.payfood.telaPrincipal;
 
-import android.app.Activity;
-import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -24,9 +21,9 @@ public class DashBoard extends Painel {
     protected View aoCriar(LayoutInflater inflater, ViewGroup container) {
         View view = inflater.inflate(R.layout.fragment_dashboard, container, false);
         Toolbar barraTopo = (Toolbar) view.findViewById(R.id.barra_topo);
+        barraTopo.setTitle("TESTE");
         Tela activity = (Tela) getActivity();
         activity.setSupportActionBar(barraTopo);
-        activity.invalidateOptionsMenu();
         return view;
     }
 

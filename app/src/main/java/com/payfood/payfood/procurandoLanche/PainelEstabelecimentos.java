@@ -20,7 +20,7 @@ public class PainelEstabelecimentos extends Painel {
     private CarregadorDados<Lanchonete> carregadorDados;
 
     public PainelEstabelecimentos() {
-        carregadorDados = new CarregadorLanchonetesTeste();
+        carregadorDados = new CarregadorLanchonetes();
     }
 
     @Override

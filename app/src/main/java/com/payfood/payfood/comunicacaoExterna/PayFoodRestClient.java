@@ -10,7 +10,7 @@ import cz.msebera.android.httpclient.HttpEntity;
 
 public class PayFoodRestClient {
 
-    private static final String BASE_URL = "http://10.120.52.84:8080/GestPatio/api/";
+    private static final String BASE_URL = "https://proj-web-cassianoviana.c9users.io:8081";
 
     private static AsyncHttpClient client = new AsyncHttpClient();
 

@@ -13,5 +13,5 @@
         android:background="@color/colorPrimaryDark"
         app:theme="@style/ToolbarItensBrancos"
         app:title="@string/nomeApp"
-        app:titleTextColor="@android:color/white" />
+        app:titleTextColor="@android:color/white"/>
 </LinearLayout>
