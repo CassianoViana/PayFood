@@ -12,6 +12,7 @@ import java.util.List;
 import framework.Painel;
 import framework.Tela;
 
+@Deprecated
 public class AdapterPagerTelaApresentacaoApp {
 
     private PagerAdapter adapter;
@@ -27,7 +28,7 @@ public class AdapterPagerTelaApresentacaoApp {
     }
 
     private void criarAdapter(final Painel tela) {
-        adapter = new FragmentPagerAdapter(tela.getActivity().getSupportFragmentManager()) {
+        /*adapter = new FragmentPagerAdapter(tela.getActivity().getSupportFragmentManager()) {
 
             @Override
             public Fragment getItem(int position) {
@@ -38,7 +39,7 @@ public class AdapterPagerTelaApresentacaoApp {
             public int getCount() {
                 return paineis.size();
             }
-        };
+        };*/
     }
 
     public PagerAdapter getAdapter() {

@@ -20,8 +20,8 @@ public class TelaComToolbar extends Tela {
     }
 
     private void obterComponentesDoLayout() {
-        toolbar = (Toolbar) findViewById(R.id.barra_topo);
-        conteudo = (FrameLayout) findViewById(R.id.conteudo);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        conteudo = (FrameLayout) findViewById(R.id.conteudo_centro_drawer);
     }
 
     private void configurarTitulo() {

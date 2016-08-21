@@ -1,5 +1,6 @@
 package com.payfood.payfood.configurandoMeusDados;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,7 +30,7 @@ public class PainelPerfil extends Painel {
         btnEditarDadosUsuario.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                chamar(PainelEdicaoPerfil.class);
+                Log.i(PainelPerfil.class.getSimpleName(), "Editar dados do usuário");
             }
         });
     }

@@ -3,13 +3,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <include android:id="@+id/barra_topo" layout="@layout/toolbar" />
+    <include android:id="@+id/toolbar" layout="@layout/toolbar" />
 
     <FrameLayout
-        android:id="@+id/conteudo"
+        android:id="@+id/conteudo_centro_drawer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/barra_topo">
+        android:layout_below="@+id/toolbar">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"

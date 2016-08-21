@@ -10,29 +10,14 @@ import android.view.ViewGroup;
 
 public abstract class Painel extends Fragment {
 
-    private GerenciadorTelas gerenciadorTelas;
+    protected View aoCriar(LayoutInflater inflater, ViewGroup container){return null;};
 
-    protected abstract View aoCriar(LayoutInflater inflater, ViewGroup container);
+    public Painel(){
+
+    }
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return aoCriar(inflater, container);
     }
 
-    public void chamar(Class painel) {
-        gerenciadorTelas.chamar(painel);
-    }
-
-    public Painel sairDaPilha(){
-        gerenciadorTelas.retirarDaPilha(this.getClass());
-        return this;
-    }
-
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        super.onCreateOptionsMenu(menu, inflater);
-    }
-
-    public void setGerenciadorTelas(GerenciadorTelas gerenciadorTelas) {
-        this.gerenciadorTelas = gerenciadorTelas;
-    }
 }

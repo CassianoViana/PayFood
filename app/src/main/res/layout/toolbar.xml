@@ -7,11 +7,21 @@
     android:orientation="vertical">
 
     <android.support.v7.widget.Toolbar
-        android:id="@+id/barra_topo"
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimaryDark"
-        app:theme="@style/ToolbarItensBrancos"
-        app:title="@string/nomeApp"
-        app:titleTextColor="@android:color/white"/>
+        style="@style/toolbar"/>
+
+    <FrameLayout
+        android:id="@+id/conteudo_centro_drawer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="@string/framework_texto_fake"
+             />
+    </FrameLayout>
 </LinearLayout>

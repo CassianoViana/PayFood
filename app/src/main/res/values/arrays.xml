@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="menu_principal_array">
+        <item>Estabelecimentos</item>
+        <item>Meus Pedidos</item>
+        <item>Configurações</item>
+    </string-array>
+
+    <integer-array name="menu_principal_icones">
+        <item>@drawable/ic_home_black_24dp</item>
+        <item>@drawable/ic_shopping_cart_black_24dp</item>
+        <item>@drawable/ic_settings_black_24dp</item>
+    </integer-array>
+
+    <string-array name="menu_principal_fragment_names">
+        <item>com.payfood.payfood.procurandoLanche.PainelEstabelecimentos</item>
+        <item>com.payfood.payfood.procurandoLanche.PainelEstabelecimentos</item>
+        <item>com.payfood.payfood.procurandoLanche.PainelEstabelecimentos</item>
+    </string-array>
+</resources>

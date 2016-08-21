@@ -2,6 +2,7 @@ package com.payfood.payfood.entrandoComoUsuario;
 
 import android.content.DialogInterface;
 import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -109,8 +110,8 @@ public class PainelCadastro extends Painel {
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        chamar(PainelLanches.class);
-                    }
+                        Log.i(PainelCadastro.class.getSimpleName(),"OK");
+;                    }
                 })
                 .create().show();
     }

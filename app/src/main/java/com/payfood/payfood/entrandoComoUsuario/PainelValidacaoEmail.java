@@ -1,5 +1,6 @@
 package com.payfood.payfood.entrandoComoUsuario;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,7 +31,7 @@ public class PainelValidacaoEmail extends Painel {
         btnEntrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                chamar(TelaPrincipal.class);
+                Log.i("TODO", "entrar");
             }
         });
     }

@@ -115,4 +115,6 @@
     <string name="imagem_do_usuario">Imagem do usuario</string>
     <string name="imagem_da_lanchonete">Imagem da lanchonete</string>
     <string name="title_activity_tela_validacao">TelaValidacao</string>
+    <string name="drawer_open">Abrindo menu</string>
+    <string name="drawer_close">Fechando menu</string>
 </resources>

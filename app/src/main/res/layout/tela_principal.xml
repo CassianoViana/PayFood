@@ -3,18 +3,14 @@
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <FrameLayout
-            android:id="@+id/conteudo"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:text="@string/framework_texto_fake" />
-        </FrameLayout>
-    </RelativeLayout>
+
+    <include layout="@layout/toolbar"/>
+
+    <include
+        layout="@layout/menu_lateral"
+        android:layout_width="300dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        />
+
 </android.support.v4.widget.DrawerLayout>

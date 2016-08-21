@@ -1,5 +1,6 @@
 package com.payfood.payfood.procurandoLanche;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -58,7 +59,7 @@ public class PainelLanches extends Painel {
             convertView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    chamar(PainelPedirLanche.class);
+                    Log.i(PainelLanches.class.getSimpleName(), "Pedir lanche");
                 }
             });
         }
