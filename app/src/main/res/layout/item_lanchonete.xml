@@ -1,40 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="match_parent"
-    android:padding="@dimen/padding_listas">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/padding_listas"
+    android:orientation="horizontal">
+
 
     <TextView
-        android:id="@+id/nome_estabelecimento"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Large Text"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:layout_alignParentTop="true"
-        android:layout_alignLeft="@+id/endereco_estabelecimento"
-        android:layout_alignStart="@+id/endereco_estabelecimento" />
-
-    <TextView
-        android:id="@+id/endereco_estabelecimento"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="New Text"
-        android:layout_below="@+id/nome_estabelecimento"
-        android:layout_toRightOf="@+id/imageView2"
-        android:layout_toEndOf="@+id/imageView2"
-        android:layout_marginLeft="14dp"
-        android:layout_marginStart="14dp" />
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Medium Text"
+        android:id="@+id/nome_estabelecimento" />
 
     <ImageView
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:id="@+id/imageView2"
-        android:adjustViewBounds="true"
-        android:scaleType="centerInside"
-        android:src="@drawable/logo_lanchonete"
-        android:layout_centerVertical="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_info_outline_black_24dp"
+        android:tint="@color/colorPrimaryDark"
+        android:background="@android:color/transparent"
+        android:id="@+id/imageButton2"
+        android:layout_below="@+id/textView13"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_location_on_black_24dp"
+        android:tint="@color/colorPrimaryDark"
+        android:background="@android:color/transparent"
+        android:id="@+id/imageButton3"
+        android:layout_above="@+id/endereco_estabelecimento"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Lanches e sucos"
+        android:id="@+id/textView13"
+        android:layout_below="@+id/nome_estabelecimento"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Small Text"
+        android:id="@+id/endereco_estabelecimento"
+        android:layout_below="@+id/nome_estabelecimento"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
 </RelativeLayout>

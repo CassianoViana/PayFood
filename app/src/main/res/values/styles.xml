@@ -39,4 +39,8 @@
         </item>
     </style>
 
+    <style name="fragment_title">
+        <item name="android:padding">10dp</item>
+    </style>
+
 </resources>

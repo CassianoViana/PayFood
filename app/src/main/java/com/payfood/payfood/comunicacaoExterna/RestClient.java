@@ -8,7 +8,7 @@ import com.loopj.android.http.RequestParams;
 
 import cz.msebera.android.httpclient.HttpEntity;
 
-public class PayFoodRestClient {
+public class RestClient {
 
     private static final String BASE_URL = "https://proj-web-cassianoviana.c9users.io:8081";
 

@@ -1,12 +1,19 @@
 package com.payfood.payfood.entidades;
 
-public class Lanchonete {
-    String nome, endereco;
+public class Estabelecimento {
+    public String nome;
+    public int id;
+    public String endereco;
     Double latitude, longitude;
 
-    public Lanchonete(String nome, String endereco) {
+
+    public Estabelecimento(String nome, String endereco) {
         this.nome = nome;
         this.endereco = endereco;
+    }
+
+    public Estabelecimento() {
+
     }
 
     public String getNome() {

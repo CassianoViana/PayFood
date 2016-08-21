@@ -11,8 +11,7 @@ import android.widget.TextView;
 
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.payfood.payfood.R;
-import com.payfood.payfood.comunicacaoExterna.PayFoodRestClient;
-import com.payfood.payfood.procurandoLanche.PainelLanches;
+import com.payfood.payfood.comunicacaoExterna.RestClient;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -71,7 +70,7 @@ public class PainelCadastro extends Painel {
             jsonParams.put("email", txtEmail.getText().toString());
             jsonParams.put("password", txtSenha.getText().toString());
             StringEntity entity = new StringEntity(jsonParams.toString());
-            PayFoodRestClient.postJson(getActivity(), "usr", entity, new JsonHttpResponseHandler() {
+            RestClient.postJson(getActivity(), "usr", entity, new JsonHttpResponseHandler() {
                 @Override
                 public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                     mostrarMensagemSucessoCadastro();

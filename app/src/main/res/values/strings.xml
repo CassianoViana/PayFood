@@ -113,8 +113,9 @@
     </string>
     <string name="action_settings">Settings</string>
     <string name="imagem_do_usuario">Imagem do usuario</string>
-    <string name="imagem_da_lanchonete">Imagem da lanchonete</string>
+    <string name="imagem_da_lanchonete">Imagem da estabelecimento</string>
     <string name="title_activity_tela_validacao">TelaValidacao</string>
     <string name="drawer_open">Abrindo menu</string>
     <string name="drawer_close">Fechando menu</string>
+    <string name="carregando">Carregando...</string>
 </resources>

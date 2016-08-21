@@ -7,14 +7,14 @@
     </string-array>
 
     <integer-array name="menu_principal_icones">
-        <item>@drawable/ic_home_black_24dp</item>
-        <item>@drawable/ic_shopping_cart_black_24dp</item>
+        <item>@drawable/ic_store_black_24dp</item>
+        <item>@drawable/ic_local_pizza_black_24dp</item>
         <item>@drawable/ic_settings_black_24dp</item>
     </integer-array>
 
     <string-array name="menu_principal_fragment_names">
-        <item>com.payfood.payfood.procurandoLanche.PainelEstabelecimentos</item>
-        <item>com.payfood.payfood.procurandoLanche.PainelEstabelecimentos</item>
-        <item>com.payfood.payfood.procurandoLanche.PainelEstabelecimentos</item>
+        <item>com.payfood.payfood.procurandoLanche.estabelecimento.PainelEstabelecimentos</item>
+        <item>com.payfood.payfood.procurandoLanche.estabelecimento.PainelEstabelecimentos</item>
+        <item>com.payfood.payfood.procurandoLanche.estabelecimento.PainelEstabelecimentos</item>
     </string-array>
 </resources>

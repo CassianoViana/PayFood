@@ -12,15 +12,15 @@ import framework.Tela;
  */
 public class BarraTopo {
 
+    private final Tela context;
     private Toolbar toolbar;
 
     public BarraTopo(Tela context) {
+        this.context = context;
         toolbar = (Toolbar) context.findViewById(R.id.toolbar);
-        toolbar.setTitle("Teste");
-
         context.setSupportActionBar(toolbar);
         context.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        context.getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_home_black_24dp);
+        context.getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_reorder_black_24dp);
     }
 
     public Toolbar getToolbar() {
