@@ -1,21 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white">
 
-    <include layout="@layout/fragment_title"
-        android:id="@+id/include2"></include>
+    <include
+        android:id="@+id/include2"
+        layout="@layout/fragment_title"/>
 
-    <android.support.v7.widget.RecyclerView
-        android:background="@android:color/white"
-        android:id="@+id/lista_estabelecimentos"
-        android:scrollbars="vertical"
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_refresh_estabelecimentos"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/include2">
-    </android.support.v7.widget.RecyclerView>
 
-    <include layout="@layout/loader"></include>
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/lista_estabelecimentos"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/white"
+            android:scrollbars="vertical"/>
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+    <include layout="@layout/loader"/>
+
+    <ProgressBar
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:progressDrawable="@drawable/progressbar"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:id="@+id/progressBar"
+        android:layout_above="@+id/swipe_refresh_estabelecimentos"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

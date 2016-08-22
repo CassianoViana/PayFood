@@ -4,13 +4,10 @@ public class Estabelecimento {
     public String nome;
     public int id;
     public String endereco;
-    Double latitude, longitude;
-
-
-    public Estabelecimento(String nome, String endereco) {
-        this.nome = nome;
-        this.endereco = endereco;
-    }
+    public String imgUrl;
+    public Double latitude, longitude;
+    public String descricao;
+    public int avaliacao;
 
     public Estabelecimento() {
 
@@ -20,8 +17,19 @@ public class Estabelecimento {
         return nome;
     }
 
-
     public String getEndereco() {
         return endereco;
+    }
+
+    public String getImgUrl(){ return imgUrl; }
+
+    public String getDescricao() { return descricao; }
+
+    public int getAvaliacao() {
+        return avaliacao;
+    }
+
+    public int getId() {
+        return id;
     }
 }

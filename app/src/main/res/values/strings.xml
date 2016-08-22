@@ -118,4 +118,5 @@
     <string name="drawer_open">Abrindo menu</string>
     <string name="drawer_close">Fechando menu</string>
     <string name="carregando">Carregando...</string>
+    <string name="title_activity_estabelecimento_detalhe">EstabelecimentoDetalhe</string>
 </resources>

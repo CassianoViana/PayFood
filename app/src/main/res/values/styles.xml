@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:android="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
@@ -41,6 +41,18 @@
 
     <style name="fragment_title">
         <item name="android:padding">10dp</item>
+    </style>
+
+    <style name="ic_info">
+        <item name="android:tint">@color/ic_info</item>
+    </style>
+
+    <style name="ic_location">
+        <item name="android:tint">@color/ic_location</item>
+    </style>
+
+    <style name="customRatingBar" parent="android:style/Widget.Material.RatingBar.Small">
+        <item name="android:padding">0dp</item>
     </style>
 
 </resources>

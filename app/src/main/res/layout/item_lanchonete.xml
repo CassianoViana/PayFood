@@ -6,44 +6,24 @@
     android:orientation="horizontal">
 
 
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/logo_estabelecimento"
+        android:src="@drawable/ic_local_pizza_black_24dp"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"/>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Medium Text"
-        android:id="@+id/nome_estabelecimento" />
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_info_outline_black_24dp"
-        android:tint="@color/colorPrimaryDark"
-        android:background="@android:color/transparent"
-        android:id="@+id/imageButton2"
-        android:layout_below="@+id/textView13"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_location_on_black_24dp"
-        android:tint="@color/colorPrimaryDark"
-        android:background="@android:color/transparent"
-        android:id="@+id/imageButton3"
-        android:layout_above="@+id/endereco_estabelecimento"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Lanches e sucos"
-        android:id="@+id/textView13"
-        android:layout_below="@+id/nome_estabelecimento"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:id="@+id/nome_estabelecimento"
+        android:layout_toRightOf="@+id/logo_estabelecimento"
+        android:layout_alignTop="@+id/logo_estabelecimento"
+        android:layout_marginLeft="@dimen/margem_left_texto_item_lanchonete"
+        android:textStyle="bold" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -51,8 +31,28 @@
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="Small Text"
         android:id="@+id/endereco_estabelecimento"
-        android:layout_below="@+id/nome_estabelecimento"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_below="@+id/descricao_estabelecimento"
+        android:layout_alignLeft="@+id/descricao_estabelecimento"
+        android:layout_alignStart="@+id/descricao_estabelecimento"
+        android:layout_marginTop="10dp"
+        android:textStyle="italic" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Small Text"
+        android:id="@+id/descricao_estabelecimento"
+        android:layout_below="@+id/ratingBar"
+        android:layout_alignLeft="@+id/nome_estabelecimento" />
+
+    <RatingBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ratingBar"
+        android:numStars="@integer/num_stars"
+        style="@style/customRatingBar"
+        android:layout_below="@id/nome_estabelecimento"
+        android:layout_alignLeft="@id/nome_estabelecimento" />
 
 </RelativeLayout>

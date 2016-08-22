@@ -11,5 +11,7 @@
     <color name="fundo_menu_pressionado">#e2deca</color>
     <color name="fundo_menu_default">#fffae0</color>
     <color name="fundo_menu">#fff8d5</color>
+    <color name="ic_info">#b1d1b6</color>
+    <color name="ic_location">#ea5353</color>
 
 </resources>
