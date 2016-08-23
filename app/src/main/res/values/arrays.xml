@@ -17,4 +17,9 @@
         <item>com.payfood.payfood.procurandoLanche.estabelecimentos.PainelEstabelecimentos</item>
         <item>com.payfood.payfood.procurandoLanche.estabelecimentos.PainelEstabelecimentos</item>
     </string-array>
+    <integer-array name="menu_principal_menus">
+        <item>@drawable/ic_store_black_24dp</item>
+        <item>@drawable/ic_local_pizza_black_24dp</item>
+        <item>@drawable/ic_settings_black_24dp</item>
+    </integer-array>
 </resources>

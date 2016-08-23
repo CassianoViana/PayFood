@@ -42,6 +42,7 @@ public class ListaEstabelecimentos implements CarregadorEstabelecimentos.Listene
 
     public void carregarEstabelecimentos() {
         barraProgresso.zerar();
+        estabelecimentos.clear();
         carregadorEstabelecimentos.carregar(estabelecimentos);
     }
 

@@ -14,16 +14,21 @@ public class BarraTopo {
 
     private final Tela context;
     private Toolbar toolbar;
+    private String titulo;
 
     public BarraTopo(Tela context) {
         this.context = context;
         toolbar = (Toolbar) context.findViewById(R.id.toolbar);
         context.setSupportActionBar(toolbar);
         context.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        context.getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_reorder_black_24dp);
+        context.getSupportActionBar().setHomeAsUpIndicator(R.drawable.payfood);
     }
 
     public Toolbar getToolbar() {
         return toolbar;
+    }
+
+    public void setTitulo(String titulo) {
+        toolbar.setTitle(titulo);
     }
 }

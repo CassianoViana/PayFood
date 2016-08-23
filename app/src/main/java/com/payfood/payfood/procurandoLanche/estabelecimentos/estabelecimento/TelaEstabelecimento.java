@@ -1,5 +1,6 @@
 package com.payfood.payfood.procurandoLanche.estabelecimentos.estabelecimento;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
@@ -25,36 +26,31 @@ public class TelaEstabelecimento extends Tela {
     ListView listaProdutos;
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {super.onCreate(savedInstanceState);
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         setContentView(R.layout.tela_estabelecimento);
-        // binds
         bannerEstabelecimento = (ImageView) findViewById(R.id.banner_estabelecimento);
         listaProdutos = (ListView) findViewById(R.id.lista_produtos);
 
-        // intent params
         String nome = getIntent().getStringExtra("nome");
         int id = getIntent().getIntExtra("id", 0);
 
-        // toolbar
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle(nome);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        // init
         carregarEstabelecimento(id);
-
-        // produtos
         carregarProdutos();
     }
 
     private void carregarProdutos() {
-        String[] itens = {"TESTE","TESTE","TESTE","TESTE","TESTE","TESTE","TESTE","TESTE","TESTE","TESTE","TESTE"};
-        ArrayAdapter<String > adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, itens);
+        String[] itens = {"TESTE", "TESTE", "TESTE", "TESTE", "TESTE", "TESTE", "TESTE", "TESTE", "TESTE", "TESTE", "TESTE"};
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, itens);
         listaProdutos.setAdapter(adapter);
     }
 
-    private void carregarEstabelecimento(int id) {
+    public void carregarEstabelecimento(int id) {
         RequestParams params = new RequestParams();
         params.put("id", id);
         RestClient.get("/estabelecimento", params, new JsonHttpResponseHandler() {
@@ -68,17 +64,11 @@ public class TelaEstabelecimento extends Tela {
                     e.printStackTrace();
                 }
             }
-
-            @Override
-            public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
-                super.onFailure(statusCode, headers, responseString, throwable);
-            }
         });
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-
         switch (item.getItemId()) {
             case android.R.id.home:
                 finish();

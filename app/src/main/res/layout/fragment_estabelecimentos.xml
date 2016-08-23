@@ -5,15 +5,10 @@
     android:layout_height="match_parent"
     android:background="@android:color/white">
 
-    <include
-        android:id="@+id/include2"
-        layout="@layout/fragment_title"/>
-
     <android.support.v4.widget.SwipeRefreshLayout
         android:id="@+id/swipe_refresh_estabelecimentos"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/include2">
+        android:layout_height="match_parent">
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/lista_estabelecimentos"
@@ -32,7 +27,7 @@
         android:layout_width="match_parent"
         android:layout_height="2dp"
         android:id="@+id/progressBar"
-        android:layout_above="@+id/swipe_refresh_estabelecimentos"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
