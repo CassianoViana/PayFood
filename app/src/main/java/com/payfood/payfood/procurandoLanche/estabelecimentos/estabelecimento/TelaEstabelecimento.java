@@ -1,29 +1,24 @@
 package com.payfood.payfood.procurandoLanche.estabelecimentos.estabelecimento;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 
-import com.loopj.android.http.JsonHttpResponseHandler;
-import com.loopj.android.http.RequestParams;
 import com.payfood.payfood.R;
-import com.payfood.payfood.comunicacaoExterna.RestClient;
+import com.payfood.payfood.entidades.Estabelecimento;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import cz.msebera.android.httpclient.Header;
 import framework.Tela;
-import minhaLang.Util;
 
-public class TelaEstabelecimento extends Tela {
+public class TelaEstabelecimento extends Tela implements CarregadorEstabelecimento.Listener {
 
     ImageView bannerEstabelecimento;
     ListView listaProdutos;
+    Estabelecimento estabelecimento;
+    CarregadorEstabelecimento carregadorEstabelecimento;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -35,12 +30,16 @@ public class TelaEstabelecimento extends Tela {
         String nome = getIntent().getStringExtra("nome");
         int id = getIntent().getIntExtra("id", 0);
 
+        estabelecimento = new Estabelecimento();
+        estabelecimento.id = id;
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle(nome);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        carregarEstabelecimento(id);
+        carregadorEstabelecimento = new CarregadorEstabelecimento(this);
+        carregadorEstabelecimento.carregar(estabelecimento);
         carregarProdutos();
     }
 
@@ -48,23 +47,6 @@ public class TelaEstabelecimento extends Tela {
         String[] itens = {"TESTE", "TESTE", "TESTE", "TESTE", "TESTE", "TESTE", "TESTE", "TESTE", "TESTE", "TESTE", "TESTE"};
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, itens);
         listaProdutos.setAdapter(adapter);
-    }
-
-    public void carregarEstabelecimento(int id) {
-        RequestParams params = new RequestParams();
-        params.put("id", id);
-        RestClient.get("/estabelecimento", params, new JsonHttpResponseHandler() {
-            @Override
-            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                super.onSuccess(statusCode, headers, response);
-                try {
-                    String img = response.getString("img");
-                    Util.glidImage(bannerEstabelecimento, img, TelaEstabelecimento.this);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
     }
 
     @Override
@@ -75,5 +57,10 @@ public class TelaEstabelecimento extends Tela {
                 break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void carregouEstabelecimento(Estabelecimento estabelecimento) {
+        Log.d("TESTE", estabelecimento.getImgUrl());
     }
 }

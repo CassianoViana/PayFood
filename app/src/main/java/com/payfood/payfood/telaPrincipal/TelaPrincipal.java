@@ -1,11 +1,14 @@
 package com.payfood.payfood.telaPrincipal;
 
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 
 import com.payfood.payfood.R;
+
+import java.lang.reflect.Field;
 
 import framework.GerenciadorFragments;
 import framework.Tela;
@@ -39,7 +42,14 @@ public class TelaPrincipal extends Tela implements MenuLateral.ListenerItemClick
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_tela_validacao, menu);
+        Field[] teste = R.menu.class.getDeclaredFields();
+        int menuRs = R.menu.barra_topo;
+        try {
+            menuRs = (int) teste[teste.length-1].get(new Object());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        inflater.inflate(menuRs, menu);
         return super.onCreateOptionsMenu(menu);
     }
 }
