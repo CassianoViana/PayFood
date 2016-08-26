@@ -9,4 +9,5 @@
     <dimen name="text_margin">16dp</dimen>
     <dimen name="padding_listas">10dp</dimen>
     <dimen name="margem_left_texto_item_lanchonete">10dp</dimen>
+    <dimen name="drawer_item_text">15dp</dimen>
 </resources>

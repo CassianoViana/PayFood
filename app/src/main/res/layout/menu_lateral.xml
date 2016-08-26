@@ -10,15 +10,22 @@
     android:dividerHeight="0dp"
     android:backgroundTint="@color/fundo_menu">
 
+    <ImageView
+        android:id="@+id/imagem_drawer"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:src="@drawable/coxinha"
+        />
+
     <LinearLayout
+        android:id="@+id/layout_lista_drawer"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="94dp"
-        android:weightSum="1">
+        android:weightSum="1"
+        android:layout_below="@+id/imagem_drawer">
 
         <ListView
             android:id="@+id/lista_menu_lateral"

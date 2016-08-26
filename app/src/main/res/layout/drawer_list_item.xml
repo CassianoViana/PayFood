@@ -11,6 +11,8 @@
         android:layout_height="wrap_content"
         android:text="Medium Text"
         android:id="@+id/nome_menu"
+        android:textSize="@dimen/drawer_item_text"
+        android:textStyle="bold"
         android:layout_marginLeft="12dp"
         android:layout_marginStart="12dp"
         android:layout_alignBottom="@+id/icone_menu"
