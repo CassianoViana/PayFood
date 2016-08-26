@@ -1,9 +1,11 @@
 package com.payfood.payfood.procurandoLanche.estabelecimentos.estabelecimento;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -12,6 +14,7 @@ import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 import com.payfood.payfood.R;
 import com.payfood.payfood.comunicacaoExterna.RestClient;
+import com.payfood.payfood.entrandoComoUsuario.TelaLogin;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -75,5 +78,10 @@ public class TelaEstabelecimento extends Tela {
                 break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public void logar(View view) {
+        Intent intent = new Intent(this, TelaLogin.class);
+        startActivity(intent);
     }
 }

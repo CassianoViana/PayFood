@@ -19,13 +19,14 @@
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
-            android:screenOrientation="portrait"
-            android:name=".procurandoLanche.estabelecimentos.estabelecimento.TelaEstabelecimento" />
+            android:name=".procurandoLanche.estabelecimentos.estabelecimento.TelaEstabelecimento"
+            android:screenOrientation="portrait" />
+        <activity android:name=".entrandoComoUsuario.TelaLogin"></activity>
     </application>
 
 </manifest>
