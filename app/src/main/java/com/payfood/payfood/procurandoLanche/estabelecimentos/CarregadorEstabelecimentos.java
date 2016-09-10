@@ -1,6 +1,7 @@
 package com.payfood.payfood.procurandoLanche.estabelecimentos;
 
 import com.loopj.android.http.JsonHttpResponseHandler;
+import com.payfood.payfood.comunicacaoExterna.ApiWeb;
 import com.payfood.payfood.comunicacaoExterna.RestClient;
 import com.payfood.payfood.entidades.Estabelecimento;
 
@@ -22,19 +23,19 @@ public class CarregadorEstabelecimentos {
 
     public void carregar(final List<Estabelecimento> estabelecimentos) {
 
-        RestClient.get("/estabelecimentos", null, new JsonHttpResponseHandler() {
+        RestClient.get(ApiWeb.estabelecimento.lista, null, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
                 try {
                     for (int i = 0; i < response.length(); i++) {
                         JSONObject job = response.getJSONObject(i);
                         Estabelecimento estabelecimento = new Estabelecimento();
-                        estabelecimento.id = job.getInt("id");
+                        estabelecimento.id = job.getString("_id");
                         estabelecimento.nome = job.getString("name");
                         estabelecimento.endereco = job.getString("address");
                         estabelecimento.imgUrl = job.getString("imgUrl");
                         estabelecimento.descricao = job.getString("descricao");
-                        estabelecimento.avaliacao = job.getInt("stars");
+                        estabelecimento.setAvaliacao(job.getDouble("stars"));
                         estabelecimentos.add(0, estabelecimento);
                         listener.carregadorTerminou();
                     }

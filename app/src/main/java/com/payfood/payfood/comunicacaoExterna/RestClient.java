@@ -5,12 +5,11 @@ import android.content.Context;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
+import com.payfood.payfood.R;
 
 import cz.msebera.android.httpclient.HttpEntity;
 
 public class RestClient {
-
-    private static final String BASE_URL = "https://proj-web-cassianoviana.c9users.io:8081";
 
     private static AsyncHttpClient client = new AsyncHttpClient();
 
@@ -26,9 +25,8 @@ public class RestClient {
         client.post(context, getAbsoluteUrl(url), entity, "application/json", responseHandler);
     }
 
-
     private static String getAbsoluteUrl(String relativeUrl) {
-        return BASE_URL + relativeUrl;
+        return ApiWeb.BASE_URL + relativeUrl;
     }
 
 }

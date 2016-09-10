@@ -43,16 +43,28 @@
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="Small Text"
         android:id="@+id/descricao_estabelecimento"
-        android:layout_below="@+id/ratingBar"
-        android:layout_alignLeft="@+id/nome_estabelecimento" />
+        android:layout_below="@+id/nome_estabelecimento"
+        android:layout_alignLeft="@+id/nome_estabelecimento"
+        android:layout_alignStart="@+id/nome_estabelecimento" />
 
     <RatingBar
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/ratingBar"
+        android:id="@+id/rating_bar"
         android:numStars="@integer/num_stars"
         style="@style/customRatingBar"
-        android:layout_below="@id/nome_estabelecimento"
-        android:layout_alignLeft="@id/nome_estabelecimento" />
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true" />
+
+    <TextView
+        android:id="@+id/num_stars"
+        android:text="4.5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/starcolor"
+        android:layout_alignBottom="@+id/nome_estabelecimento"
+        android:layout_toLeftOf="@+id/rating_bar"
+        android:layout_toStartOf="@+id/rating_bar" />
 
 </RelativeLayout>

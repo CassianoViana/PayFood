@@ -1,13 +1,15 @@
 package com.payfood.payfood.entidades;
 
+import java.math.BigDecimal;
+
 public class Estabelecimento {
     public String nome;
-    public int id;
+    public String id;
     public String endereco;
     public String imgUrl;
     public Double latitude, longitude;
     public String descricao;
-    public int avaliacao;
+    public BigDecimal avaliacao;
 
     public Estabelecimento() {
 
@@ -25,11 +27,15 @@ public class Estabelecimento {
 
     public String getDescricao() { return descricao; }
 
-    public int getAvaliacao() {
+    public BigDecimal getAvaliacao() {
         return avaliacao;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
+    }
+
+    public void setAvaliacao(double avaliacao) {
+        this.avaliacao = new BigDecimal(avaliacao).setScale(2, BigDecimal.ROUND_HALF_UP);
     }
 }

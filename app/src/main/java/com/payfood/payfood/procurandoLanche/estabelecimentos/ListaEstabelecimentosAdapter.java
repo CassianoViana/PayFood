@@ -38,7 +38,8 @@ public class ListaEstabelecimentosAdapter extends RecyclerView.Adapter<ListaEsta
         viewHolder.txtNome = (TextView) v.findViewById(R.id.nome_estabelecimento);
         viewHolder.txtEndereco = (TextView) v.findViewById(R.id.endereco_estabelecimento);
         viewHolder.txtDesc = (TextView) v.findViewById(R.id.descricao_estabelecimento);
-        viewHolder.ratingBar = (RatingBar) v.findViewById(R.id.ratingBar);
+        viewHolder.ratingBar = (RatingBar) v.findViewById(R.id.rating_bar);
+        viewHolder.numStars = (TextView) v.findViewById(R.id.num_stars);
         return viewHolder;
     }
 
@@ -48,7 +49,8 @@ public class ListaEstabelecimentosAdapter extends RecyclerView.Adapter<ListaEsta
         holder.txtNome.setText(estabelecimento.getNome());
         holder.txtEndereco.setText(estabelecimento.getEndereco());
         holder.txtDesc.setText(estabelecimento.getDescricao());
-        holder.ratingBar.setProgress(estabelecimento.getAvaliacao());
+        holder.numStars.setText(String.valueOf(estabelecimento.getAvaliacao()));
+        holder.ratingBar.setProgress(1);
         Util.glidImage(holder.imgLogo, estabelecimento.getImgUrl(), context);
         holder.bind(estabelecimentos.get(position), listener);
     }
@@ -64,6 +66,7 @@ public class ListaEstabelecimentosAdapter extends RecyclerView.Adapter<ListaEsta
         public TextView txtEndereco;
         public TextView txtDesc;
         public RatingBar ratingBar;
+        public TextView numStars;
 
         public void bind(final Estabelecimento estabelecimento, final Listener listener) {
             itemView.setOnClickListener(new View.OnClickListener() {

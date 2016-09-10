@@ -31,7 +31,7 @@ public class TelaEstabelecimento extends Tela implements CarregadorEstabelecimen
         listaProdutos = (ListView) findViewById(R.id.lista_produtos);
 
         String nome = getIntent().getStringExtra("nome");
-        int id = getIntent().getIntExtra("id", 0);
+        String id = getIntent().getStringExtra("id");
 
         estabelecimento = new Estabelecimento();
         estabelecimento.id = id;
