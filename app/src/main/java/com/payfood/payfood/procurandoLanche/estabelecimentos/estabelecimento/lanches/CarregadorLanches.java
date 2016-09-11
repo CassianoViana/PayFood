@@ -1,43 +1,44 @@
-package com.payfood.payfood.procurandoLanche.estabelecimentos;
+package com.payfood.payfood.procurandoLanche.estabelecimentos.estabelecimento.lanches;
 
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.payfood.payfood.comunicacaoExterna.ApiWeb;
 import com.payfood.payfood.comunicacaoExterna.Carregador;
 import com.payfood.payfood.comunicacaoExterna.RestClient;
-import com.payfood.payfood.entidades.Estabelecimento;
+import com.payfood.payfood.entidades.Produto;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.List;
+import java.util.Map;
 
 import cz.msebera.android.httpclient.Header;
+import minhaLang.json.SecureJsonObject;
 
-public class CarregadorEstabelecimentos extends Carregador<Estabelecimento>{
+public class CarregadorLanches extends Carregador<Produto> {
 
     private Listener listener;
 
-    public CarregadorEstabelecimentos(Listener listener){
+    public CarregadorLanches(Listener listener) {
         this.listener = listener;
     }
 
-    public void carregar(final List<Estabelecimento> estabelecimentos) {
+    public void carregar(final List<Produto> produtos, Map<String, Object> params){
 
-        RestClient.get(ApiWeb.estabelecimento.lista, null, new JsonHttpResponseHandler() {
+        RestClient.get(ApiWeb.produto.lista, null, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
                 try {
                     for (int i = 0; i < response.length(); i++) {
-                        JSONObject job = response.getJSONObject(i);
-                        Estabelecimento estabelecimento = new Estabelecimento();
-                        estabelecimento.id = job.getString("_id");
-                        estabelecimento.nome = job.getString("name");
-                        estabelecimento.endereco = job.getString("address");
-                        estabelecimento.imgUrl = job.getString("imgUrl");
-                        estabelecimento.descricao = job.getString("descricao");
-                        estabelecimento.setAvaliacao(job.getDouble("stars"));
-                        estabelecimentos.add(0, estabelecimento);
+                        SecureJsonObject job = new SecureJsonObject(response.getJSONObject(i));
+                        Produto produto = new Produto();
+                        produto.id = job.getString("_id");
+                        produto.nome = job.getString("name");
+                        produto.imgUrl = job.getString("imgUrl");
+                        produto.descricao = job.getString("descricao");
+                        produto.preco = job.getBigDecimal("preco");
+                        produtos.add(0, produto);
                     }
                     listener.carregadorTerminou();
                 } catch (JSONException e) {

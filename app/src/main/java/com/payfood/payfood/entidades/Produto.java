@@ -1,24 +1,30 @@
 package com.payfood.payfood.entidades;
 
+import java.math.BigDecimal;
+
 import minhaLang.Imagem;
 
 public class Produto {
 
-    private String nome;
-    private String descricao;
-    private Imagem imagem;
-    private Categoria categoria;
+    public String id;
+    public String nome;
+    public String descricao;
+    public String imgUrl;
+    public BigDecimal preco;
 
     public String getNome() {
         return nome;
     }
 
-    public String getDescricao() {
-        return descricao;
+    public String getImgUrl() {
+        return imgUrl;
     }
 
-    public Produto(String nome, String descricao) {
-        this.nome = nome;
-        this.descricao = descricao;
+    public BigDecimal getPreco() {
+        return preco;
+    }
+
+    public String getDescricao() {
+        return descricao;
     }
 }

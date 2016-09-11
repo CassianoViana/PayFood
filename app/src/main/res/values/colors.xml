@@ -14,5 +14,6 @@
     <color name="ic_info">#b1d1b6</color>
     <color name="ic_location">#ea5353</color>
     <color name="starcolor">#d7bd3d</color>
+    <color name="cor_preco">#450000</color>
 
 </resources>

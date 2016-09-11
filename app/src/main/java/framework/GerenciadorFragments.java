@@ -21,6 +21,6 @@ public class GerenciadorFragments {
             e.printStackTrace();
         }
         FragmentManager fragmentManager = context.getSupportFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.conteudo_centro_drawer, painel).commit();
+        fragmentManager.beginTransaction().replace(R.id.conteudo_centro_tela_estabelecimento, painel).commit();
     }
 }

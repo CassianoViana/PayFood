@@ -22,18 +22,17 @@ public class ListaEstabelecimentos implements CarregadorEstabelecimentos.Listene
     BarraProgresso barraProgresso;
     Listener listener;
 
-    public ListaEstabelecimentos(View view, Listener listener) {
+    public ListaEstabelecimentos(View viewParent, Listener listener) {
         this.listener = listener;
 
-        loader = (TextView) view.findViewById(R.id.loader);
-
-        barraProgresso = new BarraProgresso(view);
+        loader = (TextView) viewParent.findViewById(R.id.loader);
+        barraProgresso = new BarraProgresso(viewParent);
 
         estabelecimentos = new ArrayList<>();
-        listaEstabelecimentos = (RecyclerView) view.findViewById(R.id.lista_estabelecimentos);
-        mLayoutManager = new LinearLayoutManager(view.getContext());
+        listaEstabelecimentos = (RecyclerView) viewParent.findViewById(R.id.lista_estabelecimentos);
+        mLayoutManager = new LinearLayoutManager(viewParent.getContext());
         listaEstabelecimentos.setLayoutManager(mLayoutManager);
-        adapter = new ListaEstabelecimentosAdapter(estabelecimentos, view.getContext(), this);
+        adapter = new ListaEstabelecimentosAdapter(estabelecimentos, viewParent.getContext(), this);
         listaEstabelecimentos.setAdapter(adapter);
 
         carregadorEstabelecimentos = new CarregadorEstabelecimentos(this);
@@ -72,9 +71,7 @@ public class ListaEstabelecimentos implements CarregadorEstabelecimentos.Listene
     }
 
     public interface Listener {
-
         void onListaPronta();
-
         void itemDaListaFoiClicado(Estabelecimento estabelecimento);
     }
 }

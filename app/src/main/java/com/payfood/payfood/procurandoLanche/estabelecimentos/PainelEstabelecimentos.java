@@ -2,7 +2,6 @@ package com.payfood.payfood.procurandoLanche.estabelecimentos;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +9,7 @@ import android.view.ViewGroup;
 import com.payfood.payfood.R;
 import com.payfood.payfood.entidades.Estabelecimento;
 import com.payfood.payfood.procurandoLanche.estabelecimentos.estabelecimento.TelaEstabelecimento;
+import com.payfood.payfood.procurandoLanche.estabelecimentos.estabelecimento.lanches.PainelLanches;
 
 import framework.Painel;
 

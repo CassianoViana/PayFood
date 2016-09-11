@@ -53,9 +53,9 @@
         android:id="@+id/rating_bar"
         android:numStars="@integer/num_stars"
         style="@style/customRatingBar"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true" />
+        android:layout_alignTop="@+id/num_stars"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <TextView
         android:id="@+id/num_stars"

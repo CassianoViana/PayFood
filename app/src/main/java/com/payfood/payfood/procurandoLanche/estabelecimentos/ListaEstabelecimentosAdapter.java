@@ -51,7 +51,7 @@ public class ListaEstabelecimentosAdapter extends RecyclerView.Adapter<ListaEsta
         holder.txtDesc.setText(estabelecimento.getDescricao());
         holder.numStars.setText(String.valueOf(estabelecimento.getAvaliacao()));
         holder.ratingBar.setProgress(1);
-        Util.glidImage(holder.imgLogo, estabelecimento.getImgUrl(), context);
+        Util.glidImage(holder.imgLogo, estabelecimento.getImgUrl(), context, R.drawable.ic_store_black_24dp);
         holder.bind(estabelecimentos.get(position), listener);
     }
 
