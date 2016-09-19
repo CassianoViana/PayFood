@@ -14,9 +14,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity
-            android:name=".telaPrincipal.TelaPrincipal"
-            android:screenOrientation="portrait">
+        <activity android:name=".TelaInicial">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -24,9 +22,23 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".telaPrincipal.TelaPrincipal"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
             android:name=".procurandoLanche.estabelecimentos.estabelecimento.TelaEstabelecimento"
             android:screenOrientation="portrait" />
-        <activity android:name=".entrandoComoUsuario.TelaLogin"></activity>
+        <activity
+            android:name=".procurandoLanche.estabelecimentos.estabelecimento.lanches.lanche.TelaLanche"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".entrandoComoUsuario.TelaCadastro"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="framework.util.TelaErro"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_tela_erro"
+            android:theme="@style/FullscreenTheme" />
     </application>
 
 </manifest>

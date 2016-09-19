@@ -120,4 +120,8 @@
     <string name="drawer_close">Fechando menu</string>
     <string name="carregando">Carregando...</string>
     <string name="title_activity_estabelecimento_detalhe">EstabelecimentoDetalhe</string>
+
+    <string name="title_activity_tela_erro">TelaErro</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
 </resources>

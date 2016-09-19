@@ -1,0 +1,25 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    tools:context="framework.util.TelaErro">
+
+    <TextView
+        android:id="@+id/mensagem_erro_curta"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:gravity="center"
+        android:text="@string/framework_texto_fake"
+        style="@android:style/TextAppearance.DeviceDefault.Large"
+        android:textColor="@color/cor_msg_erro"/>
+
+    <TextView
+        android:id="@+id/mensagem_erro_longa"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="@string/framework_texto_fake"
+        android:layout_below="@+id/mensagem_erro_curta" />
+
+</RelativeLayout>

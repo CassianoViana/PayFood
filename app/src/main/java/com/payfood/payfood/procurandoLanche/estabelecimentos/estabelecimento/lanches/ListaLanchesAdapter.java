@@ -67,13 +67,13 @@ public class ListaLanchesAdapter extends RecyclerView.Adapter<ListaLanchesAdapte
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    listener.clicouEmProduto(produto);
+                    listener.aoClicarEmProdutoDoAdapter(produto);
                 }
             });
         }
     }
 
     public interface Listener {
-        void clicouEmProduto(Produto produto);
+        void aoClicarEmProdutoDoAdapter(Produto produto);
     }
 }

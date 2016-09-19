@@ -37,12 +37,13 @@ public class ListaLanches implements Carregador.Listener, ListaLanchesAdapter.Li
 
     @Override
     public void carregadorTerminou() {
+        listener.aoListaLanchesCarregar();
         adapter.notifyDataSetChanged();
     }
 
     @Override
     public void carregadorFalhou(int statusCode, Throwable error) {
-
+        this.listener.aoListaLanchesTerErro(error);
     }
 
     @Override
@@ -55,12 +56,13 @@ public class ListaLanches implements Carregador.Listener, ListaLanchesAdapter.Li
     }
 
     @Override
-    public void clicouEmProduto(Produto produto) {
-
+    public void aoClicarEmProdutoDoAdapter(Produto produto) {
+        listener.aoClicarEmProdutoDaLista(produto);
     }
 
     public interface Listener {
-        void carregou();
-        void deuPau(String erro);
+        void aoListaLanchesCarregar();
+        void aoListaLanchesTerErro(Throwable erro);
+        void aoClicarEmProdutoDaLista(Produto produto);
     }
 }

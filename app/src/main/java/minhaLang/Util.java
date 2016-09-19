@@ -12,10 +12,6 @@ import com.payfood.payfood.R;
 import java.math.BigDecimal;
 
 public class Util {
-    public static Bitmap getBitmapFrom64Str(String base64Str) {
-        byte[] bytes = Base64.decode(base64Str, Base64.DEFAULT);
-        return BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
-    }
 
     public static void glidImage(ImageView imgLogo, String url, Context myFragment, int alternativa) {
         Glide

@@ -26,16 +26,17 @@
         <item name="android:textColor">@color/menu_text_color</item>
         <item name="android:tint">@color/menu_text_color</item>
         <item name="android:textSize">
-            20dp
+            20sp
         </item>
 
     </style>
 
     <style name="toolbar">
         <item name="android:textColor">@color/menu_text_color</item>
+        <item name="android:background">@android:color/white</item>
         <item name="android:tint">@color/menu_text_color</item>
         <item name="android:textSize">
-            20dp
+            20sp
         </item>
     </style>
 
@@ -53,6 +54,18 @@
 
     <style name="customRatingBar" parent="android:style/Widget.Material.RatingBar.Small">
         <item name="android:padding">0dp</item>
+    </style>
+
+    <style name="FullscreenTheme" parent="AppTheme">
+        <item name="android:actionBarStyle">@style/FullscreenActionBarStyle</item>
+        <item name="android:windowActionBarOverlay">true</item>
+        <item name="android:windowBackground">@null</item>
+        <item name="metaButtonBarStyle">?android:attr/buttonBarStyle</item>
+        <item name="metaButtonBarButtonStyle">?android:attr/buttonBarButtonStyle</item>
+    </style>
+
+    <style name="FullscreenActionBarStyle" parent="Widget.AppCompat.ActionBar">
+        <item name="android:background">@color/black_overlay</item>
     </style>
 
 </resources>

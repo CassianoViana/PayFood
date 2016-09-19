@@ -1,6 +1,7 @@
-package com.payfood.payfood.procurandoLanche.estabelecimentos.estabelecimento.lanches;
+package com.payfood.payfood.procurandoLanche.estabelecimentos.estabelecimento.lanches.lanche;
 
 import com.loopj.android.http.JsonHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
 import com.payfood.payfood.comunicacaoExterna.ApiWeb;
 import com.payfood.payfood.comunicacaoExterna.Carregador;
 import com.payfood.payfood.comunicacaoExterna.RestClient;
@@ -10,41 +11,30 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.List;
-import java.util.Map;
-
 import cz.msebera.android.httpclient.Header;
 import minhaLang.json.SecureJsonObject;
 
-public class CarregadorLanches extends Carregador<List<Produto>> {
+public class CarregadorLanche extends Carregador<Produto> {
 
+    private Produto produto;
     private Listener listener;
 
-    public CarregadorLanches(Listener listener) {
+    public CarregadorLanche(Produto produto, Listener listener) {
+        this.produto = produto;
         this.listener = listener;
     }
 
-    public void carregar(final List<Produto> produtos, Map<String, Object> params){
-
-        RestClient.get(ApiWeb.produto.lista, null, new JsonHttpResponseHandler() {
+    public void carregar(RequestParams params) {
+        RestClient.get(ApiWeb.produto.get, params, new JsonHttpResponseHandler() {
             @Override
-            public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
-                try {
-                    for (int i = 0; i < response.length(); i++) {
-                        SecureJsonObject job = new SecureJsonObject(response.getJSONObject(i));
-                        Produto produto = new Produto();
-                        produto.id = job.getString("_id");
-                        produto.nome = job.getString("name");
-                        produto.imgUrl = job.getString("imgUrl");
-                        produto.descricao = job.getString("descricao");
-                        produto.preco = job.getBigDecimal("preco");
-                        produtos.add(0, produto);
-                    }
-                    listener.carregadorTerminou();
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                    listener.carregadorFalhou(1, e);
-                }
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                SecureJsonObject job = new SecureJsonObject(response);
+                produto.id = job.getString("_id");
+                produto.nome = job.getString("name");
+                produto.imgUrl = job.getString("imgUrl");
+                produto.descricao = job.getString("descricao");
+                produto.preco = job.getBigDecimal("preco");
+                listener.carregadorTerminou();
             }
 
             @Override

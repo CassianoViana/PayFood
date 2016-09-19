@@ -1,99 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="@android:color/white"
     android:backgroundTint="@color/colorPrimary">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Cadastro"
-        android:textSize="20dp"
-        android:textColor="@android:color/white"
-        android:id="@+id/textView11"
-        android:layout_marginTop="37dp"
-        android:layout_below="@+id/textView12"
-        android:layout_centerHorizontal="true" />
-    <TextView
-        android:textColor="@android:color/white"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Você esta a poucos passos de uma nova experiência "
-        android:id="@+id/textView10"
-        android:layout_below="@+id/textView11"
-        android:layout_centerHorizontal="true" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="15dp">
 
-    <EditText
-        android:background="@android:color/white"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textEmailAddress"
-        android:ems="10"
-        android:id="@+id/txtEmail"
-        android:layout_marginTop="21dp"
-        android:hint="E-mail"
-        android:padding="8dp"
-        android:layout_below="@+id/textView10"
-        android:layout_alignRight="@+id/textView10"
-        android:layout_alignEnd="@+id/textView10"
-        android:layout_alignLeft="@+id/textView10"
-        android:layout_alignStart="@+id/textView10"
-        android:layout_marginBottom="5dp"/>
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView12"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="37dp"
+            android:text="Cadastro"
+            android:textColor="@android:color/white"
+            android:textSize="20dp" />
 
-    <EditText
-        android:background="@android:color/white"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/txtUsuario"
-        android:inputType="textAutoComplete"
-        android:layout_below="@+id/txtEmail"
-        android:layout_alignLeft="@+id/txtEmail"
-        android:layout_alignStart="@+id/txtEmail"
-        android:layout_alignRight="@+id/txtEmail"
-        android:layout_alignEnd="@+id/txtEmail"
-        android:hint="Usuário"
-        android:padding="8dp"
-        android:layout_marginBottom="5dp"/>
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView11"
+            android:layout_centerHorizontal="true"
+            android:text="Você esta a poucos passos de uma nova experiência "
+            android:textColor="@android:color/white" />
 
-    <EditText
-        android:background="@android:color/white"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:ems="10"
-        android:id="@+id/txtSenha"
-        android:layout_below="@+id/txtUsuario"
-        android:layout_alignLeft="@+id/txtUsuario"
-        android:layout_alignStart="@+id/txtUsuario"
-        android:layout_alignRight="@+id/txtUsuario"
-        android:layout_alignEnd="@+id/txtUsuario"
-        android:hint="Senha"
-        android:padding="8dp"/>
+        <EditText
+            android:id="@+id/txtEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/textView10"
+            android:layout_marginTop="21dp"
+            android:background="@android:color/white"
+            android:ems="10"
+            android:hint="E-mail"
+            android:inputType="textEmailAddress"
+            android:padding="@dimen/padding_fields" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Economizar"
-        android:id="@+id/btn_economizar"
-        android:layout_marginTop="56dp"
-        android:layout_below="@+id/txtSenha"
-        android:layout_alignRight="@+id/txtSenha"
-        android:layout_alignEnd="@+id/txtSenha"
-        android:layout_alignLeft="@+id/txtSenha"
-        android:layout_alignStart="@+id/txtSenha" />
+        <EditText
+            android:id="@+id/txtUsuario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/txtEmail"
+            android:background="@android:color/white"
+            android:hint="Usuário"
+            android:inputType="textAutoComplete"
+            android:padding="@dimen/padding_fields" />
 
-    <TextView
-        android:textColor="@android:color/white"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="PayFood"
-        android:textSize="50dp"
-        android:textStyle="italic|bold"
-        android:id="@+id/textView12"
-        android:layout_marginTop="25dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        <EditText
+            android:id="@+id/txtSenha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/txtUsuario"
+            android:background="@android:color/white"
+            android:ems="10"
+            android:hint="Senha"
+            android:inputType="textPassword"
+            android:padding="@dimen/padding_fields" />
+
+        <Button
+            android:id="@+id/btn_economizar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/txtSenha"
+            android:layout_marginTop="31dp"
+            android:text="Economizar" />
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="25dp"
+            android:text="PayFood"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@android:color/white"
+            android:textSize="50dp"
+            android:textStyle="italic|bold" />
 
 
+    </RelativeLayout>
 </RelativeLayout>

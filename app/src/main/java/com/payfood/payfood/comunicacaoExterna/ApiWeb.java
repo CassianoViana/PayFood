@@ -8,7 +8,12 @@ public class ApiWeb {
         public static String lista = "/estabelecimentos";
     }
 
+    public static class usuario {
+        public static String post = "/usuario";
+    }
+
     public static class produto {
         public static String lista = "/produtos";
+        public static String get = "/produto";
     }
 }

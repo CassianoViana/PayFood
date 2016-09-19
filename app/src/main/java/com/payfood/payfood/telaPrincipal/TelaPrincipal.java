@@ -13,7 +13,7 @@ import java.lang.reflect.Field;
 import framework.GerenciadorFragments;
 import framework.Tela;
 
-public class TelaPrincipal extends Tela implements MenuLateral.ListenerItemClick{
+public class TelaPrincipal extends Tela implements MenuLateral.ListenerItemClick {
 
     private DrawerMenu drawerMenu;
     private MenuLateral menuLateral;
@@ -45,7 +45,7 @@ public class TelaPrincipal extends Tela implements MenuLateral.ListenerItemClick
         Field[] teste = R.menu.class.getDeclaredFields();
         int menuRs = R.menu.barra_topo;
         try {
-            menuRs = (int) teste[teste.length-1].get(new Object());
+            menuRs = (int) teste[teste.length - 1].get(new Object());
         } catch (Exception e) {
             e.printStackTrace();
         }
