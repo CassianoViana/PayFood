@@ -16,7 +16,7 @@
     <string-array name="menu_principal_fragment_names">
         <item>com.payfood.payfood.procurandoLanche.estabelecimentos.PainelEstabelecimentos</item>
         <item>com.payfood.payfood.procurandoLanche.estabelecimentos.PainelEstabelecimentos</item>
-        <item>com.payfood.payfood.procurandoLanche.estabelecimentos.PainelEstabelecimentos</item>
+        <item>com.payfood.payfood.configuracoes.PainelConfiguracoes</item>
     </string-array>
 
     <integer-array name="menu_principal_menus">

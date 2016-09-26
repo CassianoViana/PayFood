@@ -11,21 +11,22 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.Map;
+
 import cz.msebera.android.httpclient.Header;
 import minhaLang.json.SecureJsonObject;
 
 public class CarregadorLanche extends Carregador<Produto> {
 
-    private Produto produto;
     private Listener listener;
 
-    public CarregadorLanche(Produto produto, Listener listener) {
-        this.produto = produto;
+    public CarregadorLanche(Listener listener) {
         this.listener = listener;
     }
 
-    public void carregar(RequestParams params) {
-        RestClient.get(ApiWeb.produto.get, params, new JsonHttpResponseHandler() {
+    public void carregar(final Produto produto) {
+        String url = ApiWeb.produto.get + "/" + produto.getId();
+        RestClient.get(url, null, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 SecureJsonObject job = new SecureJsonObject(response);

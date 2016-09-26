@@ -124,4 +124,14 @@
     <string name="title_activity_tela_erro">TelaErro</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="editar">Editar</string>
+    <string name="editar_perfil">Editar perfil</string>
+    <string name="alterar_plano">Alterar plano</string>
+    <string name="alterar">Alterar</string>
+    <string name="senha">Senha</string>
+    <string name="telefone">Telefone</string>
+    <string name="email">Email</string>
+    <string name="nome">Nome</string>
+    <string name="concluir">Concluir</string>
+    <string name="assinatura_app">Assinatura PayFood</string>
 </resources>

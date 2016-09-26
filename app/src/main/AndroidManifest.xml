@@ -14,7 +14,8 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".TelaInicial">
+        <activity android:name=".TelaInicial"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -33,6 +34,21 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".entrandoComoUsuario.TelaCadastro"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".entrandoComoUsuario.TelaAcessarConta"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".entrandoComoUsuario.TelaRecuperarSenha"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.payfood.payfood.configuracoes.usuario.perfil.TelaPerfil"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.payfood.payfood.configuracoes.usuario.perfil.TelaEditarPerfil"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".configuracoes.usuario.perfil.planos.TelaPlanos"
             android:screenOrientation="portrait" />
         <activity
             android:name="framework.util.TelaErro"

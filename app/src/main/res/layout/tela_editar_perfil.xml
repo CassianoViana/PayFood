@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:ignore="RtlHardcoded">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/infos_principais"
+        style="@style/tela_form"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbar"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_centerHorizontal="true"
+                android:contentDescription="@string/imagem_do_usuario"
+                android:src="@drawable/ico_usuario" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/alterar"
+                android:layout_centerHorizontal="true"
+                android:layout_alignBottom="@id/imageView"
+                style="@style/btns_simples"/>
+        </RelativeLayout>
+
+
+        <TextView
+            style="@style/label.h5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:text="@string/nome" />
+
+        <EditText
+            style="@style/field_form"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Ex.: Jonão da Silba"
+            android:maxLength="50"/>
+
+        <TextView
+            style="@style/label.h5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:text="@string/email"
+             />
+
+        <EditText
+            style="@style/field_form"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:inputType="textWebEmailAddress"
+            android:hint="Ex.: jonao@silba.mail"
+            android:maxLength="100"/>
+
+        <TextView
+            style="@style/label.h5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:text="@string/telefone" />
+
+        <EditText
+            style="@style/field_form"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:inputType="phone"
+            android:maxLength="12"
+            android:hint="Ex.: (47) 9999-9999" />
+
+        <TextView
+            style="@style/label.h5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:text="@string/senha" />
+
+        <EditText
+            style="@style/field_form"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:inputType="textPassword"
+            android:hint="Ex.: *****"
+            android:maxLength="20"/>
+
+        <Button
+            android:layout_marginTop="30dp"
+            android:layout_width="150dp"
+            android:layout_gravity="right"
+            android:layout_height="wrap_content"
+            style="@style/btns_simples"
+            android:text="@string/concluir"
+            android:onClick="onClickConcluir"/>
+
+    </LinearLayout>
+
+
+</RelativeLayout>

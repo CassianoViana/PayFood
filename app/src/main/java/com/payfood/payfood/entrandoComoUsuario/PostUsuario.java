@@ -63,7 +63,6 @@ public class PostUsuario {
 
     public interface Listener {
         void sucesso(Usuario usuario);
-
         void erro(Throwable e);
     }
 }

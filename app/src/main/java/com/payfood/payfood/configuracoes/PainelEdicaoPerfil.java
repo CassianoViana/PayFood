@@ -1,4 +1,4 @@
-package com.payfood.payfood.configurandoMeusDados;
+package com.payfood.payfood.configuracoes;
 
 import android.view.LayoutInflater;
 import android.view.View;

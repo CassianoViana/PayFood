@@ -9,7 +9,6 @@ import android.view.MenuItem;
 import com.payfood.payfood.R;
 import com.payfood.payfood.entidades.Estabelecimento;
 import com.payfood.payfood.procurandoLanche.estabelecimentos.estabelecimento.lanches.PainelLanches;
-import com.payfood.payfood.procurandoLanche.estabelecimentos.estabelecimento.lanches.lanche.TelaLanche;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -29,33 +28,16 @@ public class TelaEstabelecimento extends Tela {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tela_estabelecimento);
 
-        String nome = getIntent().getStringExtra("nome");
-        String id = getIntent().getStringExtra("id");
-        estabelecimento = new Estabelecimento();
-        estabelecimento.id = id;
+        estabelecimento = (Estabelecimento) getIntent().getSerializableExtra("estabelecimento");
+        FrameworkUtil.setUpToolbar(this, estabelecimento.getNome());
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle(nome);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-        carregarLanches();
+        mostrarPainelLanches();
     }
 
-    private void carregarLanches() {
+    private void mostrarPainelLanches() {
         PainelLanches.Listener listener = new PainelLanchesListener();
         painelLanches = PainelLanches.instance(listener);
         mostrar(painelLanches);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                finish();
-                break;
-        }
-        return super.onOptionsItemSelected(item);
     }
 
     private void mostrar(Painel fragment) {
@@ -75,10 +57,7 @@ public class TelaEstabelecimento extends Tela {
 
         @Override
         public void pronto() {
-            Map<String, Object> filtros = new HashMap<>();
-            Intent intent = getIntent();
-            filtros.put("estab_id", intent.getStringExtra("id"));
-            painelLanches.carregarLanches(filtros);
+            painelLanches.carregarLanches(estabelecimento);
         }
     }
 }

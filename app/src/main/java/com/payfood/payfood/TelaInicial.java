@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.payfood.payfood.entrandoComoUsuario.TelaAcessarConta;
 import com.payfood.payfood.telaPrincipal.TelaPrincipal;
 
 import framework.Tela;
@@ -23,4 +24,6 @@ public class TelaInicial extends Tela {
     public void onClickConhecer(View view) {
         startActivity(new Intent(this, TelaPrincipal.class));
     }
+
+    public void onClickAcessarConta(View view) { startActivity(new Intent(this, TelaAcessarConta.class)); }
 }

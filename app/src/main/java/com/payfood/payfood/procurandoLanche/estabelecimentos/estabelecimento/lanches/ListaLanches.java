@@ -7,6 +7,7 @@ import android.view.View;
 
 import com.payfood.payfood.R;
 import com.payfood.payfood.comunicacaoExterna.Carregador;
+import com.payfood.payfood.entidades.Estabelecimento;
 import com.payfood.payfood.entidades.Produto;
 
 import java.util.ArrayList;
@@ -32,7 +33,7 @@ public class ListaLanches implements Carregador.Listener, ListaLanchesAdapter.Li
         adapter = new ListaLanchesAdapter(lanches, view.getContext(), this);
         listView.setAdapter(adapter);
 
-        carregadorLanches = new CarregadorLanches(this);
+        carregadorLanches = new CarregadorLanches(this, lanches);
     }
 
     @Override
@@ -51,8 +52,8 @@ public class ListaLanches implements Carregador.Listener, ListaLanchesAdapter.Li
 
     }
 
-    public void carregar(Map<String, Object> filtros) {
-        carregadorLanches.carregar(lanches, filtros);
+    public void carregar(Estabelecimento estabelecimento) {
+        carregadorLanches.carregar(estabelecimento);
     }
 
     @Override

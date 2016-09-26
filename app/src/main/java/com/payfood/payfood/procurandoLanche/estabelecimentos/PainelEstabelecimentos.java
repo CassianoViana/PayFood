@@ -41,8 +41,7 @@ public class PainelEstabelecimentos extends Painel implements SwipeRefreshEstabe
     @Override
     public void itemDaListaFoiClicado(Estabelecimento estabelecimento) {
         Intent intent = new Intent(getContext(), TelaEstabelecimento.class);
-        intent.putExtra("nome", estabelecimento.getNome());
-        intent.putExtra("id", estabelecimento.getId());
+        intent.putExtra("estabelecimento", estabelecimento);
         startActivity(intent);
     }
 }

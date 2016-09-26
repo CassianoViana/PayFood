@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.payfood.payfood.R;
+import com.payfood.payfood.entidades.Estabelecimento;
 import com.payfood.payfood.entidades.Produto;
 import com.payfood.payfood.procurandoLanche.estabelecimentos.estabelecimento.lanches.lanche.TelaLanche;
 
@@ -21,7 +22,7 @@ public class PainelLanches extends Painel implements ListaLanches.Listener {
     private Listener listener;
 
     public static PainelLanches instance(Listener listener) {
-        if(painelLanches == null) {
+        if (painelLanches == null) {
             painelLanches = new PainelLanches();
         }
         painelLanches.listener = listener;
@@ -36,8 +37,8 @@ public class PainelLanches extends Painel implements ListaLanches.Listener {
         return view;
     }
 
-    public void carregarLanches(Map<String, Object> filtros) {
-        listaLanches.carregar(filtros);
+    public void carregarLanches(Estabelecimento estabelecimento) {
+        listaLanches.carregar(estabelecimento);
     }
 
     @Override
@@ -53,8 +54,7 @@ public class PainelLanches extends Painel implements ListaLanches.Listener {
     @Override
     public void aoClicarEmProdutoDaLista(Produto produto) {
         Intent intent = new Intent(getActivity(), TelaLanche.class);
-        intent.putExtra("produto_id", produto.getId());
-        intent.putExtra("nomeProduto", produto.getNome());
+        intent.putExtra("produto", produto);
         getActivity().startActivity(intent);
     }
 

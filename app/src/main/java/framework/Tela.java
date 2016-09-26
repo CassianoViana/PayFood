@@ -1,16 +1,18 @@
 package framework;
 
-import android.app.Activity;
-import android.content.Intent;
-import android.os.Bundle;
-import android.os.PersistableBundle;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-
-import com.payfood.payfood.R;
+import android.view.MenuItem;
 
 public abstract class Tela extends AppCompatActivity {
 
-    public static int REQUEST_CODE_LOGAR = 100;
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
 }

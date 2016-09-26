@@ -2,8 +2,11 @@ package framework.util;
 
 
 import android.content.Context;
+import android.support.v7.widget.Toolbar;
 
-import com.payfood.payfood.procurandoLanche.estabelecimentos.estabelecimento.lanches.lanche.TelaLanche;
+import com.payfood.payfood.R;
+
+import framework.Tela;
 
 public class FrameworkUtil {
 
@@ -27,4 +30,10 @@ public class FrameworkUtil {
     }
 
 
+    public static void setUpToolbar(Tela view, String title) {
+        Toolbar toolbar = (Toolbar) view.findViewById(R.id.toolbar);
+        toolbar.setTitle(title);
+        view.setSupportActionBar(toolbar);
+        view.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    }
 }

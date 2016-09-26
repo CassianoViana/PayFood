@@ -12,32 +12,28 @@ public class GerenciadorUsuario {
     static GerenciadorUsuario gerenciadorUsuario;
     static Usuario usuario;
 
-    VerificadorConta verificadorConta;
-    LoginManager loginManager;
-    private boolean jaTemConta;
+    AccountManager accountManager;
     private boolean estaLogado;
 
 
     public static GerenciadorUsuario instance(Tela tela) {
         if (gerenciadorUsuario == null)
             gerenciadorUsuario = new GerenciadorUsuario();
-        gerenciadorUsuario.verificadorConta = new VerificadorContaImpl(tela);
-        gerenciadorUsuario.loginManager = new LoginManagerImpl(tela);
+        gerenciadorUsuario.accountManager = new AccountManagerImpl(tela);
+        usuario = gerenciadorUsuario.accountManager.getUsuarioLogado();
         return gerenciadorUsuario;
     }
 
     private GerenciadorUsuario() {
 
-
     }
 
-    public GerenciadorUsuario jaTemConta() {
-        this.jaTemConta = verificadorConta.jaTemConta(usuario);
-        return this;
+    public Usuario getUsuario() {
+        return usuario;
     }
 
     public boolean estaLogado() {
-        this.estaLogado = loginManager.usuarioEstaLogado();
+        this.estaLogado = accountManager.usuarioEstaLogado();
         return estaLogado;
     }
 
@@ -47,17 +43,13 @@ public class GerenciadorUsuario {
         return true;
     }
 
-    public void logar(int requestCode) {
-        loginManager.logar(usuario, requestCode);
-    }
-
     public void registrar(int requestCode) {
-        verificadorConta.registrar(requestCode);
+        accountManager.registrar(requestCode);
     }
 
     public void salvarUsuario(Usuario usuarioSalvar) {
         usuario = usuarioSalvar;
         estaLogado = true;
-        loginManager.salvar(usuario);
+        accountManager.salvar(usuario);
     }
 }

@@ -42,10 +42,10 @@ public class TelaPrincipal extends Tela implements MenuLateral.ListenerItemClick
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        Field[] teste = R.menu.class.getDeclaredFields();
+        Field[] R_field = R.menu.class.getDeclaredFields();
         int menuRs = R.menu.barra_topo;
         try {
-            menuRs = (int) teste[teste.length - 1].get(new Object());
+            menuRs = (int) R_field[R_field.length - 1].get(new Object());
         } catch (Exception e) {
             e.printStackTrace();
         }

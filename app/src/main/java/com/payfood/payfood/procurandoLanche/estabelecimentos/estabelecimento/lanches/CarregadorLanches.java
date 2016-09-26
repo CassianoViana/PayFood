@@ -4,6 +4,7 @@ import com.loopj.android.http.JsonHttpResponseHandler;
 import com.payfood.payfood.comunicacaoExterna.ApiWeb;
 import com.payfood.payfood.comunicacaoExterna.Carregador;
 import com.payfood.payfood.comunicacaoExterna.RestClient;
+import com.payfood.payfood.entidades.Estabelecimento;
 import com.payfood.payfood.entidades.Produto;
 
 import org.json.JSONArray;
@@ -18,15 +19,19 @@ import minhaLang.json.SecureJsonObject;
 
 public class CarregadorLanches extends Carregador<List<Produto>> {
 
+    private List<Produto> lanches;
     private Listener listener;
 
-    public CarregadorLanches(Listener listener) {
+    public CarregadorLanches(Listener listener, List<Produto> lanches) {
         this.listener = listener;
+        this.lanches = lanches;
     }
 
-    public void carregar(final List<Produto> produtos, Map<String, Object> params){
+    public void carregar(Estabelecimento estabelecimento){
 
-        RestClient.get(ApiWeb.produto.lista, null, new JsonHttpResponseHandler() {
+        String url = ApiWeb.produto.lista + "/" + estabelecimento.getId();
+
+        RestClient.get(url, null, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
                 try {
@@ -36,9 +41,10 @@ public class CarregadorLanches extends Carregador<List<Produto>> {
                         produto.id = job.getString("_id");
                         produto.nome = job.getString("name");
                         produto.imgUrl = job.getString("imgUrl");
-                        produto.descricao = job.getString("descricao");
+                        produto.descricao = job.getString("description");
                         produto.preco = job.getBigDecimal("preco");
-                        produtos.add(0, produto);
+                        produto.estabelecimentoId = job.getString("estabelecimento_id");
+                        lanches.add(0, produto);
                     }
                     listener.carregadorTerminou();
                 } catch (JSONException e) {
@@ -65,5 +71,9 @@ public class CarregadorLanches extends Carregador<List<Produto>> {
                 listener.carregadorProgrediu(bytesWritten, totalSize);
             }
         });
+    }
+
+    public void setLanches(List<Produto> lanches) {
+        this.lanches = lanches;
     }
 }

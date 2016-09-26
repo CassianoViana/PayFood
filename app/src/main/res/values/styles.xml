@@ -23,8 +23,8 @@
     </style>
 
     <style name="item_menu_lateral__cor_texto">
-        <item name="android:textColor">@color/menu_text_color</item>
         <item name="android:tint">@color/menu_text_color</item>
+        <item name="android:textColor">@color/menu_text_color</item>
         <item name="android:textSize">
             20sp
         </item>
@@ -32,12 +32,10 @@
     </style>
 
     <style name="toolbar">
-        <item name="android:textColor">@color/menu_text_color</item>
-        <item name="android:background">@android:color/white</item>
-        <item name="android:tint">@color/menu_text_color</item>
-        <item name="android:textSize">
-            20sp
-        </item>
+        <item name="android:background">@color/colorPrimaryDark</item>
+    </style>
+    <style name="toolbar.title" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">20sp</item>
     </style>
 
     <style name="fragment_title">
@@ -66,6 +64,71 @@
 
     <style name="FullscreenActionBarStyle" parent="Widget.AppCompat.ActionBar">
         <item name="android:background">@color/black_overlay</item>
+    </style>
+
+    <style name="buttonLogin">
+        <item name="android:typeface">serif</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">15dp</item>
+    </style>
+
+    <style name="buttonLogin.normal">
+        <item name="android:background">@drawable/btn_login</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+    </style>
+
+    <style name="buttonLogin.inverted">
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="field_form">
+        <item name="android:layout_marginBottom">4dp</item>
+        <item name="android:padding">@dimen/padding_fields</item>
+        <item name="android:background">@drawable/background_fields_form</item>
+        <item name="android:typeface">serif</item>
+        <item name="android:fontFamily">serif</item>
+        <item name="android:textColorHint">#999</item>
+    </style>
+    <style name="label">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:typeface">serif</item>
+        <item name="android:gravity">center</item>
+    </style>
+    <style name="label.h3">
+        <item name="android:textSize">20dp</item>
+    </style>
+    <style name="label.h5">
+        <item name="android:textSize">15dp</item>
+    </style>
+
+    <style name="tela_form">
+        <item name="android:padding">15dp</item>
+        <item name="android:background">@color/colorPrimary</item>
+    </style>
+
+    <style name="btns_simples">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:background">@drawable/background_btns_simples</item>
+        <item name="android:textSize">17dp</item>
+    </style>
+
+    <style name="well">
+        <item name="android:background">@drawable/background_wells</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">20dp</item>
+        <item name="android:padding">20dp</item>
+        <item name="android:textColor">@color/black_leve</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="swipe_ball">
+        <item name="android:background">@drawable/swipe_ball</item>
+        <item name="android:layout_marginLeft">5dp</item>
+        <item name="android:layout_marginRight">5dp</item>
+        <item name="android:layout_width">12dp</item>
+        <item name="android:layout_height">12dp</item>
     </style>
 
 </resources>
