@@ -7,25 +7,29 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.payfood.payfood.R;
+import com.payfood.payfood.entidades.Usuario;
 
 import framework.Tela;
+import framework.userAccountManagement.GerenciadorUsuario;
 
 public class MenuLateral {
 
     private final Tela context;
     private ListView listaMenuLateral;
     private ListenerItemClick listenerItemClick;
+    private RegiaoMenuLayoutLogout regiaoMenuLayoutLogout;
 
     public MenuLateral(Tela context) {
         this.context = context;
         listenerItemClick = (ListenerItemClick) context;
         listaMenuLateral = (ListView) context.findViewById(R.id.lista_menu_lateral);
+        regiaoMenuLayoutLogout = new RegiaoMenuLayoutLogout(context);
         montarLista();
     }
 
@@ -75,13 +79,17 @@ public class MenuLateral {
         });
     }
 
-    public void clicar(int i){
+    public void clicar(int i) {
         listaMenuLateral.setItemChecked(i, true);
         listenerItemClick.clicou((Item) listaMenuLateral.getAdapter().getItem(i));
     }
 
     public interface ListenerItemClick {
         void clicou(Item itemMenu);
+    }
+
+    public void updateContent(){
+        regiaoMenuLayoutLogout.atualizarContent(context);
     }
 
 }

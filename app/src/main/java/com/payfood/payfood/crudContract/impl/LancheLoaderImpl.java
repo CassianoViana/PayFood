@@ -1,40 +1,38 @@
-package com.payfood.payfood.procurandoLanche.estabelecimentos.estabelecimento.lanches.lanche;
+package com.payfood.payfood.crudContract.impl;
 
 import com.loopj.android.http.JsonHttpResponseHandler;
-import com.loopj.android.http.RequestParams;
 import com.payfood.payfood.comunicacaoExterna.ApiWeb;
-import com.payfood.payfood.comunicacaoExterna.Carregador;
 import com.payfood.payfood.comunicacaoExterna.RestClient;
+import com.payfood.payfood.crudContract.LancheLoader;
+import com.payfood.payfood.entidades.Estabelecimento;
 import com.payfood.payfood.entidades.Produto;
 
-import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.util.Map;
 
 import cz.msebera.android.httpclient.Header;
 import minhaLang.json.SecureJsonObject;
 
-public class CarregadorLanche extends Carregador<Produto> {
+public class LancheLoaderImpl implements LancheLoader {
 
     private Listener listener;
 
-    public CarregadorLanche(Listener listener) {
+    public void construct(Listener listener) {
         this.listener = listener;
     }
 
+    @Override
     public void carregar(final Produto produto) {
         String url = ApiWeb.produto.get + "/" + produto.getId();
         RestClient.get(url, null, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 SecureJsonObject job = new SecureJsonObject(response);
-                produto.id = job.getString("_id");
-                produto.nome = job.getString("name");
-                produto.imgUrl = job.getString("imgUrl");
-                produto.descricao = job.getString("descricao");
-                produto.preco = job.getBigDecimal("preco");
+                produto.setId(job.getString("_id"));
+                produto.setNome(job.getString("name"));
+                produto.setImgUrl(job.getString("imgUrl"));
+                produto.setDescricao(job.getString("description"));
+                produto.setPreco(job.getBigDecimal("preco"));
+                produto.setEstabelecimento(new Estabelecimento(job.getString("estabelecimento_id")));
                 listener.carregadorTerminou();
             }
 

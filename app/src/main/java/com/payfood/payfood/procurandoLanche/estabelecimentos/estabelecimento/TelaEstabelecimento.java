@@ -31,12 +31,12 @@ public class TelaEstabelecimento extends Tela {
         estabelecimento = (Estabelecimento) getIntent().getSerializableExtra("estabelecimento");
         FrameworkUtil.setUpToolbar(this, estabelecimento.getNome());
 
-        mostrarPainelLanches();
+        mostrarPainelLanches(estabelecimento);
     }
 
-    private void mostrarPainelLanches() {
+    private void mostrarPainelLanches(Estabelecimento estabelecimento) {
         PainelLanches.Listener listener = new PainelLanchesListener();
-        painelLanches = PainelLanches.instance(listener);
+        painelLanches = PainelLanches.instance(listener, estabelecimento);
         mostrar(painelLanches);
     }
 
@@ -57,7 +57,7 @@ public class TelaEstabelecimento extends Tela {
 
         @Override
         public void pronto() {
-            painelLanches.carregarLanches(estabelecimento);
+            painelLanches.carregarLanches();
         }
     }
 }

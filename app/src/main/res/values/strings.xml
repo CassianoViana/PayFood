@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">PayFood</string>
 
-    <!-- Strings related to login -->
+    <!-- Strings related to persist -->
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password (optional)</string>
     <string name="action_sign_in">Sign in or register</string>
@@ -134,4 +134,7 @@
     <string name="nome">Nome</string>
     <string name="concluir">Concluir</string>
     <string name="assinatura_app">Assinatura PayFood</string>
+    <string name="pedido_confirmado">Recebemos seu pedido</string>
+    <string name="mensagem_confirmacao_pedido_lanche">Agora é só aguardar a notificação que virá quando ele ficar pronto.</string>
+    <string name="logout">Logout</string>
 </resources>

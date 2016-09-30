@@ -43,7 +43,7 @@ public class ListaLanchesAdapter extends RecyclerView.Adapter<ListaLanchesAdapte
         Produto produto = lanches.get(position);
         holder.nomeProduto.setText(produto.getNome());
         holder.descricaoProduto.setText(produto.getDescricao());
-        holder.precoLanche.setText(Util.getFormattedPrice(produto.getPreco()));
+        holder.precoLanche.setText(produto.getPrecoFormatado());
         Util.glidImage(holder.imagemLanche, produto.getImgUrl(), context, R.drawable.ic_local_pizza_black_24dp);
         holder.bind(produto, listener);
     }

@@ -38,12 +38,12 @@ public class CarregadorLanches extends Carregador<List<Produto>> {
                     for (int i = 0; i < response.length(); i++) {
                         SecureJsonObject job = new SecureJsonObject(response.getJSONObject(i));
                         Produto produto = new Produto();
-                        produto.id = job.getString("_id");
-                        produto.nome = job.getString("name");
-                        produto.imgUrl = job.getString("imgUrl");
-                        produto.descricao = job.getString("description");
-                        produto.preco = job.getBigDecimal("preco");
-                        produto.estabelecimentoId = job.getString("estabelecimento_id");
+                        produto.setId(job.getString("_id"));
+                        produto.setNome(job.getString("name"));
+                        produto.setImgUrl(job.getString("imgUrl"));
+                        produto.setDescricao(job.getString("description"));
+                        produto.setPreco(job.getBigDecimal("preco"));
+                        produto.setEstabelecimento(new Estabelecimento(job.getString("estabelecimento_id")));
                         lanches.add(0, produto);
                     }
                     listener.carregadorTerminou();
@@ -71,9 +71,5 @@ public class CarregadorLanches extends Carregador<List<Produto>> {
                 listener.carregadorProgrediu(bytesWritten, totalSize);
             }
         });
-    }
-
-    public void setLanches(List<Produto> lanches) {
-        this.lanches = lanches;
     }
 }

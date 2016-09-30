@@ -25,6 +25,10 @@ public class RestClient {
         client.post(context, getAbsoluteUrl(url), entity, "application/json", responseHandler);
     }
 
+    public static void putJson(Context context, String url, HttpEntity entity, AsyncHttpResponseHandler responseHandler) {
+        client.put(context, getAbsoluteUrl(url), entity, "application/json", responseHandler);
+    }
+
     private static String getAbsoluteUrl(String relativeUrl) {
         return ApiWeb.BASE_URL + relativeUrl;
     }

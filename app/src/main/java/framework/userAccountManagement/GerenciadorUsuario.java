@@ -10,11 +10,10 @@ import framework.userAccountManagement.exceptions.UsuarioNaoLogadoException;
 public class GerenciadorUsuario {
 
     static GerenciadorUsuario gerenciadorUsuario;
-    static Usuario usuario;
+    static Usuario usuario = Usuario.NULL;
 
     AccountManager accountManager;
     private boolean estaLogado;
-
 
     public static GerenciadorUsuario instance(Tela tela) {
         if (gerenciadorUsuario == null)
@@ -47,9 +46,15 @@ public class GerenciadorUsuario {
         accountManager.registrar(requestCode);
     }
 
-    public void salvarUsuario(Usuario usuarioSalvar) {
+    public void persist(Usuario usuarioSalvar) {
         usuario = usuarioSalvar;
         estaLogado = true;
         accountManager.salvar(usuario);
+    }
+
+    public void logout() {
+        estaLogado = false;
+        usuario = Usuario.NULL;
+        accountManager.logout();
     }
 }

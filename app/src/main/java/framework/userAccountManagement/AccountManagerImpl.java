@@ -41,14 +41,16 @@ public class AccountManagerImpl implements AccountManager {
     }
 
     @Override
-    public void logar(Usuario usuario, int requestCode) {
-
-    }
-
-    @Override
     public void registrar(int requestCode) {
         Intent activityCadastro = new Intent(context, TelaCadastro.class);
         context.startActivityForResult(activityCadastro, requestCode);
+    }
+
+    @Override
+    public void logout() {
+        preferences.edit().remove("ultimo_login_nome").commit();
+        preferences.edit().remove("ultimo_login_email").commit();
+        preferences.edit().remove("ultimo_login_id").commit();
     }
 
     @Override

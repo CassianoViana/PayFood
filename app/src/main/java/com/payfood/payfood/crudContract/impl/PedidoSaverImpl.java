@@ -1,12 +1,12 @@
-package com.payfood.payfood.procurandoLanche.estabelecimentos.estabelecimento.lanches.lanche;
+package com.payfood.payfood.crudContract.impl;
 
 import android.content.Context;
 
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.payfood.payfood.comunicacaoExterna.ApiWeb;
 import com.payfood.payfood.comunicacaoExterna.RestClient;
+import com.payfood.payfood.crudContract.PedidoSaver;
 import com.payfood.payfood.entidades.Pedido;
-import com.payfood.payfood.entidades.Usuario;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -16,28 +16,33 @@ import java.io.UnsupportedEncodingException;
 import cz.msebera.android.httpclient.Header;
 import cz.msebera.android.httpclient.entity.StringEntity;
 
-public class PostPedido {
+public class PedidoSaverImpl implements PedidoSaver {
 
     private static final int MAX_TENTATIVAS = 2;
     Context context;
     Listener listener;
 
-    public PostPedido(Context context, Listener listener) {
+    @Override
+    public void construct(Context context, Listener listener) {
         this.listener = listener;
         this.context = context;
     }
 
-    public void enviarPedido(final Pedido pedido) {
+    @Override
+    public void save(final Pedido pedido) {
         try {
 
-            JSONObject jsonPedido = new JSONObject();
-            jsonPedido.put("produto_id", pedido.getProduto().getId());
-            jsonPedido.put("estabelecimento_id", pedido.getEstabelecimento().getId());
-            jsonPedido.put("usuario_id", pedido.getUsuario().getId());
-            jsonPedido.put("cliente", pedido.getUsuario().getNome());
-            jsonPedido.put("pedido", pedido.getProduto().getNome());
+            JSONObject pedidoJson = new JSONObject(), clienteJson = new JSONObject(), produtoJson = new JSONObject();
+            clienteJson.put("id", pedido.getUsuario().getId());
+            clienteJson.put("name", pedido.getUsuario().getNome());
+            pedidoJson.put("cliente", clienteJson);
+            produtoJson.put("id", pedido.getProduto().getId());
+            produtoJson.put("nome", pedido.getProduto().getNome());
+            produtoJson.put("preco", pedido.getProduto().getPreco());
+            pedidoJson.put("produto", produtoJson);
+            pedidoJson.put("estabelecimento_id", pedido.getEstabelecimento().getId());
 
-            StringEntity pedidoEntity = new StringEntity(jsonPedido.toString());
+            StringEntity pedidoEntity = new StringEntity(pedidoJson.toString());
 
             String url = ApiWeb.pedido.post;
             RestClient.postJson(context, url, pedidoEntity, new JsonHttpResponseHandler() {
@@ -60,15 +65,9 @@ public class PostPedido {
 
                 }
             });
-        } catch (JSONException | UnsupportedEncodingException e) {
+        } catch (Exception e) {
             listener.erro(e);
             e.printStackTrace();
         }
-    }
-
-    public interface Listener {
-        void sucesso(Pedido usuario);
-
-        void erro(Throwable e);
     }
 }

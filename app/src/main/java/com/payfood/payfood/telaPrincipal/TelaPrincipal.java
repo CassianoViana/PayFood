@@ -12,8 +12,9 @@ import java.lang.reflect.Field;
 
 import framework.GerenciadorFragments;
 import framework.Tela;
+import framework.userAccountManagement.GerenciadorUsuario;
 
-public class TelaPrincipal extends Tela implements MenuLateral.ListenerItemClick {
+public class TelaPrincipal extends Tela implements MenuLateral.ListenerItemClick, RegiaoMenuLayoutLogout.ListenerLogoutClick {
 
     private DrawerMenu drawerMenu;
     private MenuLateral menuLateral;
@@ -30,6 +31,13 @@ public class TelaPrincipal extends Tela implements MenuLateral.ListenerItemClick
         drawerMenu = new DrawerMenu(this, barraTopo.getToolbar());
         gerenciadorFragments = new GerenciadorFragments(this);
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        menuLateral.updateContent();
+    }
+
 
     @Override
     public void clicou(MenuLateral.Item itemMenu) {
@@ -51,5 +59,12 @@ public class TelaPrincipal extends Tela implements MenuLateral.ListenerItemClick
         }
         inflater.inflate(menuRs, menu);
         return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public void clicouParaSair() {
+        GerenciadorUsuario.instance(this).logout();
+        menuLateral.updateContent();
+        finish();
     }
 }

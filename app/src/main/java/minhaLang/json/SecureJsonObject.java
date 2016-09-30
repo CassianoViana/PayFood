@@ -6,12 +6,15 @@ import java.math.BigDecimal;
 
 public class SecureJsonObject {
 
+    public static final SecureJsonObject NULL = new SecureJsonObject(null){
+
+    };
+
     private final JSONObject job;
 
     public SecureJsonObject(JSONObject job) {
         this.job = job;
     }
-
 
     public String getString(String id) {
         try {
@@ -28,6 +31,15 @@ public class SecureJsonObject {
         } catch (Exception e) {
             e.printStackTrace();
             return 0.0;
+        }
+    }
+
+    public SecureJsonObject getJob(String id) {
+        try {
+            return new SecureJsonObject(job.getJSONObject(id));
+        } catch (Exception e) {
+            e.printStackTrace();
+            return SecureJsonObject.NULL;
         }
     }
 

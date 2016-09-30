@@ -3,47 +3,22 @@ package com.payfood.payfood.entidades;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
+import lombok.Getter;
+import lombok.Setter;
 import minhaLang.Imagem;
+import minhaLang.Util;
 
+@Getter
+@Setter
 public class Produto implements Serializable {
+    private String id;
+    private String nome;
+    private String descricao;
+    private String imgUrl;
+    private BigDecimal preco;
+    private Estabelecimento estabelecimento;
 
-    public String id;
-    public String nome;
-    public String descricao;
-    public String imgUrl;
-    public BigDecimal preco;
-    public String estabelecimentoId;
-    public Estabelecimento estabelecimento;
-
-    public String getNome() {
-        return nome;
-    }
-
-    public String getImgUrl() {
-        return imgUrl;
-    }
-
-    public BigDecimal getPreco() {
-        return preco;
-    }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setEstabelecimento(Estabelecimento estabelecimento) {
-        this.estabelecimento = estabelecimento;
-    }
-
-    public Estabelecimento getEstabelecimento() {
-        return estabelecimento;
-    }
-
-    public void setId(String id) {
-        this.id = id;
+    public String getPrecoFormatado() {
+        return Util.getFormattedPrice(getPreco());
     }
 }

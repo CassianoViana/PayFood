@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.payfood.payfood">
 
-    <!-- To auto-complete the email text field in the login form with the user's emails -->
+    <!-- To auto-complete the email text field in the persist form with the user's emails -->
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
@@ -36,7 +36,7 @@
             android:name=".entrandoComoUsuario.TelaCadastro"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".entrandoComoUsuario.TelaAcessarConta"
+            android:name=".entrandoComoUsuario.TelaLogin"
             android:screenOrientation="portrait" />
         <activity
             android:name=".entrandoComoUsuario.TelaRecuperarSenha"

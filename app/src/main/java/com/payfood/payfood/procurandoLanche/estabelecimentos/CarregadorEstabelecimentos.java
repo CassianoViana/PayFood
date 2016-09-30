@@ -5,6 +5,7 @@ import com.payfood.payfood.comunicacaoExterna.ApiWeb;
 import com.payfood.payfood.comunicacaoExterna.Carregador;
 import com.payfood.payfood.comunicacaoExterna.RestClient;
 import com.payfood.payfood.entidades.Estabelecimento;
+import com.payfood.payfood.entidades.Localizacao;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -13,6 +14,7 @@ import org.json.JSONObject;
 import java.util.List;
 
 import cz.msebera.android.httpclient.Header;
+import minhaLang.json.SecureJsonObject;
 
 public class CarregadorEstabelecimentos extends Carregador<Estabelecimento>{
 
@@ -29,14 +31,15 @@ public class CarregadorEstabelecimentos extends Carregador<Estabelecimento>{
             public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
                 try {
                     for (int i = 0; i < response.length(); i++) {
-                        JSONObject job = response.getJSONObject(i);
-                        Estabelecimento estabelecimento = new Estabelecimento();
-                        estabelecimento.id = job.getString("_id");
-                        estabelecimento.nome = job.getString("name");
-                        estabelecimento.endereco = job.getString("address");
-                        estabelecimento.imgUrl = job.getString("imgUrl");
-                        estabelecimento.descricao = job.getString("descricao");
-                        estabelecimento.setAvaliacao(job.getDouble("stars"));
+                        SecureJsonObject job = new SecureJsonObject(response.getJSONObject(i));
+                        Estabelecimento estabelecimento = new Estabelecimento(job.getString("_id"));
+                        estabelecimento.setNome(job.getString("name"));
+                        estabelecimento.setEndereco(job.getString("address"));
+                        SecureJsonObject locJob = job.getJob("location");
+                        estabelecimento.setLocation(new Localizacao(locJob.getDouble("x"), locJob.getDouble("y")));
+                        estabelecimento.setImgUrl(job.getString("imgUrl"));
+                        estabelecimento.setDescricao(job.getString("descricao"));
+                        estabelecimento.setAvaliacaoDouble(job.getDouble("stars"));
                         estabelecimentos.add(0, estabelecimento);
                     }
                     listener.carregadorTerminou();

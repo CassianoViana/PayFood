@@ -17,15 +17,14 @@ import framework.Painel;
 
 public class PainelLanches extends Painel implements ListaLanches.Listener {
 
-    private static PainelLanches painelLanches;
+    private Estabelecimento estabelecimento;
     private ListaLanches listaLanches;
     private Listener listener;
 
-    public static PainelLanches instance(Listener listener) {
-        if (painelLanches == null) {
-            painelLanches = new PainelLanches();
-        }
+    public static PainelLanches instance(Listener listener, Estabelecimento estabelecimento) {
+        PainelLanches painelLanches = new PainelLanches();
         painelLanches.listener = listener;
+        painelLanches.estabelecimento = estabelecimento;
         return painelLanches;
     }
 
@@ -37,7 +36,7 @@ public class PainelLanches extends Painel implements ListaLanches.Listener {
         return view;
     }
 
-    public void carregarLanches(Estabelecimento estabelecimento) {
+    public void carregarLanches() {
         listaLanches.carregar(estabelecimento);
     }
 
@@ -60,7 +59,9 @@ public class PainelLanches extends Painel implements ListaLanches.Listener {
 
     public interface Listener {
         void carregou();
+
         void erro(Throwable problema);
+
         void pronto();
     }
 }

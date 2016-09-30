@@ -21,11 +21,11 @@
         android:id="@+id/layout_lista_drawer"
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:weightSum="1"
-        android:layout_below="@+id/imagem_drawer">
+        android:layout_below="@+id/imagem_drawer"
+        android:layout_above="@+id/layout_sair">
 
         <ListView
             android:id="@+id/lista_menu_lateral"
@@ -33,8 +33,43 @@
             android:choiceMode="singleChoice"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
         </ListView>
     </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/layout_sair"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:padding="@dimen/padding_pequeno">
+
+        <TextView
+            android:id="@+id/txt_nome_logado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cassiano Viana"
+            android:textColor="@color/colorPrimary"
+            android:fontFamily="serif"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:textAllCaps="true"
+            android:layout_centerVertical="true"
+            />
+
+        <ImageButton
+            android:id="@+id/btn_sair"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/ic_logout"
+            android:tint="@color/colorPrimary"
+            android:background="@android:color/transparent"
+            android:gravity="right"
+            android:layout_centerVertical="true"
+            android:text="Sair"/>
+
+    </RelativeLayout>
 </RelativeLayout>
 
 

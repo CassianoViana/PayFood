@@ -3,6 +3,7 @@ package com.payfood.payfood.comunicacaoExterna;
 public class ApiWeb {
 
     static final String BASE_URL = "https://payfood-api-dev-cesarviana.c9users.io";
+    public static final int MAX_TENTATIVAS = 2;
 
     public static class estabelecimento {
         public static String lista = "/estabelecimento";
@@ -10,6 +11,7 @@ public class ApiWeb {
 
     public static class usuario {
         public static String post = "/usuario";
+        public static String login = "/login";
     }
 
     public static class produto {

@@ -11,4 +11,5 @@
     <dimen name="margem_left_texto_item_lanchonete">10dp</dimen>
     <dimen name="drawer_item_text">15dp</dimen>
     <dimen name="padding_fields">10dp</dimen>
+    <dimen name="padding_pequeno">10dp</dimen>
 </resources>

@@ -6,6 +6,8 @@ import android.widget.TextView;
 
 import com.payfood.payfood.R;
 import com.payfood.payfood.appconstants.ResultCode;
+import com.payfood.payfood.crudContract.UsuarioSaver;
+import com.payfood.payfood.crudContract.impl.UsuarioSaverImpl;
 import com.payfood.payfood.entidades.Usuario;
 
 import framework.Tela;
@@ -15,7 +17,7 @@ import framework.util.FrameworkUtil;
 public class TelaCadastro extends Tela {
 
     private TextView txtEmail, txtUsuario, txtSenha;
-    PostUsuario post;
+    UsuarioSaver saver;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -26,23 +28,23 @@ public class TelaCadastro extends Tela {
         txtUsuario = (TextView) findViewById(R.id.txtUsuario);
         txtSenha = (TextView) findViewById(R.id.txtSenha);
 
-        PostUsuarioListener listenerPost = new PostUsuarioListener();
-        post = new PostUsuario(this, listenerPost);
+        saver = new UsuarioSaverImpl();
+        saver.construct(this, new PostUsuarioListener());
     }
 
     public void onClickEconomizar(View view) {
         Usuario usuario = new Usuario();
-        usuario.nome = txtUsuario.getText().toString();
-        usuario.email = txtEmail.getText().toString();
-        usuario.senha = txtSenha.getText().toString();
-        post.salvarUsuario(usuario);
+        usuario.setNome(txtUsuario.getText().toString());
+        usuario.setEmail(txtEmail.getText().toString());
+        usuario.setSenha(txtSenha.getText().toString());
+        saver.save(usuario);
     }
 
-    private class PostUsuarioListener implements PostUsuario.Listener {
+    private class PostUsuarioListener implements UsuarioSaver.Listener {
         @Override
         public void sucesso(Usuario usuario) {
-            GerenciadorUsuario.instance(TelaCadastro.this).salvarUsuario(usuario);
             setResult(ResultCode.LOGOU);
+            GerenciadorUsuario.instance(TelaCadastro.this).persist(usuario);
             finish();
         }
 

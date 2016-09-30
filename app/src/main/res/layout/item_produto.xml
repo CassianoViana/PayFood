@@ -44,9 +44,10 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
+
         android:text="R$ 10.99"
-        android:textColor="@color/colorPrimaryDark"
-        android:textAppearance="?android:attr/textAppearanceLarge"
+        style="@style/precoProduto"
+
         android:textStyle="bold" />
 
     <TextView
