@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
+import android.widget.Button;
 
 import com.payfood.payfood.R;
 import com.payfood.payfood.entidades.Estabelecimento;
@@ -22,12 +23,14 @@ public class TelaEstabelecimento extends Tela {
     public static final String TAG = TelaEstabelecimento.class.getSimpleName();
     Estabelecimento estabelecimento;
     PainelLanches painelLanches;
+    Button btnLocalizar;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tela_estabelecimento);
 
+        btnLocalizar = (Button) findViewById(R.id.btn_localizar);
         estabelecimento = (Estabelecimento) getIntent().getSerializableExtra("estabelecimento");
         FrameworkUtil.setUpToolbar(this, estabelecimento.getNome());
 

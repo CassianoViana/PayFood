@@ -10,6 +10,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
+        <Button
+            android:id="@+id/btn_localizar"
+            android:layout_below="@id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Buscar"
+            style="@style/buttonLogin.normal"/>
+
         <FrameLayout
             android:id="@+id/conteudo_centro_tela_estabelecimento"
             android:layout_width="match_parent"

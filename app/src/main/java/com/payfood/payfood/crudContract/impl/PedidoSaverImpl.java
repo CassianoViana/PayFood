@@ -37,7 +37,7 @@ public class PedidoSaverImpl implements PedidoSaver {
             clienteJson.put("name", pedido.getUsuario().getNome());
             pedidoJson.put("cliente", clienteJson);
             produtoJson.put("id", pedido.getProduto().getId());
-            produtoJson.put("nome", pedido.getProduto().getNome());
+            produtoJson.put("name", pedido.getProduto().getNome());
             produtoJson.put("preco", pedido.getProduto().getPreco());
             pedidoJson.put("produto", produtoJson);
             pedidoJson.put("estabelecimento_id", pedido.getEstabelecimento().getId());
